@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="6953ccaf-93d2-4296-baea-04fc4ae22045" name="Changes" comment="Added initial bits of input system" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Enum" />
+        <option value="Interface" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 5
+}</component>
+  <component name="ProjectId" id="2bMeCFSFRWzledgZpjt24Ll3S2i" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Application.Main.executor": "Run",
+    "Maven.Pyre [verify].executor": "Run",
+    "Maven.Pyre.executor": "Run",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "ignore.virus.scanning.warn.message": "true",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "C:/Users/bomba/Documents/Projects/pyre",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "project.propVCSSupport.DirectoryMappings",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="com.brandonoium.pyre.util.input" />
+      <recent name="com.brandonoium.pyre.util.map" />
+      <recent name="com.brandonoium.pyre" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Application.Main">
+    <list>
+      <item itemvalue="Application.Main" />
+      <item itemvalue="Maven.Pyre [verify]" />
+      <item itemvalue="Maven.Pyre [compile]" />
+    </list>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="jdk-20.0.2-corretto-20.0.2.1-f644763e9732-27d99999" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="6953ccaf-93d2-4296-baea-04fc4ae22045" name="Changes" comment="" />
+      <created>1706029248021</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1706029248021</updated>
+      <workItem from="1706029249038" duration="620000" />
+      <workItem from="1706029884727" duration="12407000" />
+      <workItem from="1706106064067" duration="5202000" />
+      <workItem from="1706280472393" duration="13407000" />
+      <workItem from="1706544061593" duration="19702000" />
+      <workItem from="1706623254243" duration="22805000" />
+      <workItem from="1706799437009" duration="21036000" />
+      <workItem from="1706881428191" duration="23691000" />
+      <workItem from="1706916458906" duration="9448000" />
+      <workItem from="1707109675599" duration="765000" />
+      <workItem from="1707110579463" duration="187000" />
+    </task>
+    <task id="LOCAL-00001" summary="Added initial bits of input system">
+      <option name="closed" value="true" />
+      <created>1706940031808</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1706940031808</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Added initial bits of input system" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added initial bits of input system" />
+  </component>
+</project>
