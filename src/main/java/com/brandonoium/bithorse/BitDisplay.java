@@ -93,6 +93,9 @@ public class BitDisplay extends JPanel {
     }
 
 
+    /**
+     * Paint the display's current buffer to its internal image representation. The image is scaled according to the pixel scale given in the constructor.
+     */
     public void paintScaled() {
         for(int y = 0; y < image.getHeight(); y++) {
             for(int x = 0; x < image.getWidth(); x++) {
@@ -101,6 +104,13 @@ public class BitDisplay extends JPanel {
         }
     }
 
+    /**
+     * Paint part of the display's current buffer to its internal image representation, with the pixel scale given in the constructor.
+     * @param xPos The X position of the top-left corner of the rectangle that should be drawn to the image.
+     * @param yPos The Y position of the top-left corner of the rectangle that should be drawn to the image.
+     * @param w The width of the rectangle that will be drawn.
+     * @param h The height of the rectangle that will be drawn.
+     */
     public void paintScaledSection(int xPos, int yPos, int w, int h) {
         for(int y = 0; y < h; y++) {
             for(int x = 0; x < w; x++) {

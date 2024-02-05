@@ -9,9 +9,27 @@ public class EcsWorld {
 
     private long nextEntityId = 0;
 
+    private long playerEntityId;
+    private long globalEntityId;
+
     public EcsWorld() {
         componentsById = new HashMap<>();
         componentsByType = new HashMap<>();
+
+        globalEntityId = newEntityId();
+    }
+
+
+    public void setPlayerEntityId(long pid) {
+        playerEntityId = pid;
+    }
+
+    public long getPlayerEntityId() {
+        return playerEntityId;
+    }
+
+    public long getGlobalEntityId() {
+        return globalEntityId;
     }
 
 
@@ -54,6 +72,12 @@ public class EcsWorld {
         componentsByType.get(component.getClass()).remove(entityId);
 
         componentsById.get(entityId).remove(component.getClass());
+    }
+
+    public void removeComponent(Long entityId, Class type) {
+        componentsByType.get(type).remove(entityId);
+
+        componentsById.get(entityId).remove(type);
     }
 
     public Map<Long, IComponent> getComponentsByType(Class type) {
