@@ -12,7 +12,5 @@ public interface GameState {
 
     public Queue<ISystem> getSystems();
 
-    public void handleAction(StateManager mgr, EcsWorld world, KeyInput action);
-
     public void runSystems();
 }

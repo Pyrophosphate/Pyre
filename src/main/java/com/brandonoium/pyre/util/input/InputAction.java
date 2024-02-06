@@ -7,5 +7,7 @@ public enum InputAction {
     MOVE_RIGHT,
     MOVE_LEFT,
     MOVE_UP,
-    MOVE_DOWN
+    MOVE_DOWN,
+
+    EXAMINE
 }

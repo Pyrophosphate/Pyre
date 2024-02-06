@@ -16,10 +16,6 @@ public class StateManager {
         currentState = state;
     }
 
-    public void doAction(KeyInput action) {
-        currentState.handleAction(this, world, action);
-    }
-
     public void runSystems() {
         currentState.runSystems();
     }

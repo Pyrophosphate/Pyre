@@ -6,10 +6,11 @@ import com.brandonoium.pyre.components.LocationComponent;
 import com.brandonoium.pyre.components.TerminalRenderableComponent;
 import com.brandonoium.pyre.ecs.EcsWorld;
 import com.brandonoium.pyre.entitybuilders.PlayerBuilder;
-import com.brandonoium.pyre.gamestates.MainGameState;
+import com.brandonoium.pyre.gamestates.PlayerTurnState;
 import com.brandonoium.pyre.gamestates.StateManager;
-import com.brandonoium.pyre.systems.TerminalRenderingSystem;
+import com.brandonoium.pyre.systems.*;
 import com.brandonoium.pyre.ui.BasicWidget;
+import com.brandonoium.pyre.util.input.DefaultKeyInputMap;
 import com.brandonoium.pyre.util.input.InputService;
 import com.brandonoium.pyre.util.input.KeyInputMap;
 import com.brandonoium.pyre.util.map.MapService;
@@ -32,21 +33,24 @@ public class Main {
 
 
         EcsWorld world = new EcsWorld();
-        PlayerBuilder.buildPlayer(world);
+        long playerEntityId = PlayerBuilder.buildPlayer(world);
         StateManager stateMgr = new StateManager(world);
-        stateMgr.setCurrentState(new MainGameState());
-        InputService input = new InputService(stateMgr);
-        input.setKeyInputMap(new KeyInputMap());
+        PlayerTurnState playerTurnState = new PlayerTurnState();
+        stateMgr.setCurrentState(playerTurnState);
+
+        PlayerInputSystem playerInput = new PlayerInputSystem(playerEntityId);
+        playerInput.init(world);
+        InputService input = new InputService(playerInput);
+        input.setKeyInputMap(DefaultKeyInputMap.getDefaultKeyInputMap());
         term.addKeyListener(input);
-        stateMgr.setCurrentState(new MainGameState());
 
         term.setFgBgColors(Color.GRAY, Color.DARK_GRAY);
 
-        BasicWidget root = new BasicWidget(40, 30, 0, 0);
 
         MapService map = new MapService();
         map.generateMap(new EmptyRoomMapGenerator(40, 30));
 
+        BasicWidget root = new BasicWidget(40, 30, 0, 0);
         BasicWidget renderingWidget = new BasicWidget(40, 30, 0, 0);
         root.addChild(renderingWidget);
         TerminalRenderingSystem tRend = new TerminalRenderingSystem(renderingWidget, map, 0, 0);
@@ -56,6 +60,24 @@ public class Main {
         world.addComponent(enemy, new LocationComponent(5, 5));
         world.addComponent(enemy, new TerminalRenderableComponent('W'));
 
-        tRend.run();
+        BumpMovementSystem bump = new BumpMovementSystem();
+        bump.init(world);
+        FramePacingSystem framePacing = new FramePacingSystem(16);
+        framePacing.init(world);
+
+        FinalTerminalRenderingSystem finalRend = new FinalTerminalRenderingSystem(term, root);
+        finalRend.init(world);
+
+        playerTurnState.addSystem(playerInput);
+        playerTurnState.addSystem(bump);
+        playerTurnState.addSystem(framePacing);
+        playerTurnState.addSystem(tRend);
+        playerTurnState.addSystem(finalRend);
+
+        while(true) {
+            stateMgr.runSystems();
+        }
+
+        //tRend.run();
     }
 }

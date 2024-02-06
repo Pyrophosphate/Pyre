@@ -28,4 +28,9 @@ public class Location {
     public void setY(int y) {
         this.y = y;
     }
+
+
+    public Location copy() {
+        return new Location(x, y);
+    }
 }

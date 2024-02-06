@@ -24,16 +24,22 @@ public class BumpMovementSystem implements ISystem {
 
     @Override
     public void run() {
-        Map<Long, IComponent> bumps = world.getComponentsByType(BumpMovementSystem.class);
+        Map<Long, IComponent> bumps = world.getComponentsByType(BumpMovementComponent.class);
         ArrayList<Long> idsToRemove = new ArrayList<>();
 
         // For now just do the movement as requested.
         for(Entry<Long, IComponent> b : bumps.entrySet()) {
+            //System.out.println("Found bump: " + b);
             BumpMovementComponent bump = (BumpMovementComponent) b.getValue();
             LocationComponent l = (LocationComponent) world.getComponentsById(b.getKey()).get(LocationComponent.class);
-            int newX = l.getLoc().getX() + bump.getxBump();
-            int newY = l.getLoc().getY() + bump.getyBump();
-            l.setLoc(new Location(newX, newY));
+            if(l == null) {
+                System.out.println("BumpMovementComponent found on entity with no LocationComponent; entityId = " + b.getKey());
+
+            } else {
+                int newX = l.getLoc().getX() + bump.getxBump();
+                int newY = l.getLoc().getY() + bump.getyBump();
+                l.setLoc(new Location(newX, newY));
+            }
 
             idsToRemove.add(b.getKey());
         }

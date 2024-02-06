@@ -35,8 +35,9 @@ public class EcsWorld {
 
     public long newEntityId() {
         componentsById.put(nextEntityId, new HashMap<>());
+        nextEntityId++;
 
-        return nextEntityId++;
+        return nextEntityId - 1;
     }
 
     public long addNewEntityWithComponents(Set<IComponent> components) {
@@ -81,10 +82,16 @@ public class EcsWorld {
     }
 
     public Map<Long, IComponent> getComponentsByType(Class type) {
+        if(!componentsByType.containsKey(type))
+            componentsByType.put(type, new HashMap<>());
         return componentsByType.get(type);
     }
 
     public Map<Class, IComponent> getComponentsById(long entityId) {
         return componentsById.get(entityId);
+    }
+
+    public IComponent getComponent(long entityId, Class type) {
+        return componentsById.get(entityId).get(type);
     }
 }

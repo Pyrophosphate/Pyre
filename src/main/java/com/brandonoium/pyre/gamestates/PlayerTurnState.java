@@ -1,17 +1,17 @@
 package com.brandonoium.pyre.gamestates;
 
+import com.brandonoium.pyre.components.BumpMovementComponent;
 import com.brandonoium.pyre.ecs.EcsWorld;
 import com.brandonoium.pyre.ecs.ISystem;
-import com.brandonoium.pyre.util.input.KeyInput;
 
 import java.util.LinkedList;
 import java.util.Queue;
 
-public class EnemyTurnState implements GameState {
+public class PlayerTurnState implements GameState {
 
     private Queue<ISystem> systemQueue;
 
-    public EnemyTurnState() {
+    public PlayerTurnState() {
         systemQueue = new LinkedList<>();
     }
 
