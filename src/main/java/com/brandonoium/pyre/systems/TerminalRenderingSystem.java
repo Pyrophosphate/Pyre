@@ -15,16 +15,17 @@ import com.brandonoium.pyre.util.map.MapService;
 import java.util.Map;
 import java.util.Map.Entry;
 
-public class TerminalRenderingSystem  implements ISystem {
+public class TerminalRenderingSystem  extends ISystem {
 
     //private BitHorseTerminal terminal;
     private TerminalUiWidget widget;
     private int xPos, yPos;
-    private EcsWorld world;
+    //private EcsWorld world;
     private MapService map;
 
 
-    public TerminalRenderingSystem(TerminalUiWidget widget, MapService map, int x, int y) {
+    public TerminalRenderingSystem(EcsWorld world, TerminalUiWidget widget, MapService map, int x, int y) {
+        super(world);
         //terminal = term;
         this.widget = widget;
         xPos = x;
@@ -32,11 +33,6 @@ public class TerminalRenderingSystem  implements ISystem {
         this.map = map;
     }
 
-
-    @Override
-    public void init(EcsWorld world) {
-        this.world = world;
-    }
 
     @Override
     public void run() {

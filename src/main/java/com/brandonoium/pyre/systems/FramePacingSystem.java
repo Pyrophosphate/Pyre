@@ -5,19 +5,15 @@ import com.brandonoium.pyre.ecs.ISystem;
 
 import static java.lang.Thread.sleep;
 
-public class FramePacingSystem implements ISystem {
+public class FramePacingSystem extends ISystem {
 
     private long lastTime;
     private long msToWait;
 
-    public FramePacingSystem(long pacing) {
+    public FramePacingSystem(EcsWorld world, long pacing) {
+        super(world);
         msToWait = pacing;
         lastTime = System.currentTimeMillis();
-    }
-
-    @Override
-    public void init(EcsWorld world) {
-
     }
 
     @Override

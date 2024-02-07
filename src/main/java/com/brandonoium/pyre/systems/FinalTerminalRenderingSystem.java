@@ -5,21 +5,18 @@ import com.brandonoium.pyre.ecs.EcsWorld;
 import com.brandonoium.pyre.ecs.ISystem;
 import com.brandonoium.pyre.ui.TerminalUiWidget;
 
-public class FinalTerminalRenderingSystem implements ISystem {
+public class FinalTerminalRenderingSystem extends ISystem {
 
-    private EcsWorld world;
+    //private EcsWorld world;
     private BitHorseTerminal term;
     private TerminalUiWidget rootWidget;
 
-    public FinalTerminalRenderingSystem(BitHorseTerminal term, TerminalUiWidget rootWidget) {
+    public FinalTerminalRenderingSystem(EcsWorld world, BitHorseTerminal term, TerminalUiWidget rootWidget) {
+        super(world);
         this.term = term;
         this.rootWidget = rootWidget;
     }
 
-    @Override
-    public void init(EcsWorld world) {
-        this.world = world;
-    }
 
     @Override
     public void run() {

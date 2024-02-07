@@ -1,8 +1,18 @@
 package com.brandonoium.pyre.ecs;
 
-public interface ISystem {
+public class ISystem {
 
-    public void init(EcsWorld world);
-    public void run();
+    protected EcsWorld world;
 
+    public ISystem(EcsWorld world) {
+        this.world = world;
+    }
+
+    public void init() {
+
+    }
+
+    public void run(){
+
+    }
 }

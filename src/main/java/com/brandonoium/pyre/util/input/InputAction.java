@@ -4,6 +4,8 @@ public enum InputAction {
 
     NULL_ACTION,
 
+    WAIT,
+
     MOVE_RIGHT,
     MOVE_LEFT,
     MOVE_UP,

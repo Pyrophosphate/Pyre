@@ -12,6 +12,8 @@ public class DefaultKeyInputMap {
         map.setMapping(KeyEvent.VK_LEFT, InputAction.MOVE_LEFT);
         map.setMapping(KeyEvent.VK_RIGHT, InputAction.MOVE_RIGHT);
 
+        map.setMapping(KeyEvent.VK_NUMPAD5, InputAction.WAIT);
+
         map.setMapping(KeyEvent.VK_X, InputAction.EXAMINE);
 
         return map;

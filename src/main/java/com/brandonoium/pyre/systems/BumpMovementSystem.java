@@ -12,14 +12,12 @@ import java.util.ArrayList;
 import java.util.Map;
 import java.util.Map.Entry;
 
-public class BumpMovementSystem implements ISystem {
+public class BumpMovementSystem extends ISystem {
 
-    private EcsWorld world;
+    //private EcsWorld world;
 
-
-    @Override
-    public void init(EcsWorld world) {
-        this.world = world;
+    public BumpMovementSystem(EcsWorld world) {
+        super(world);
     }
 
     @Override

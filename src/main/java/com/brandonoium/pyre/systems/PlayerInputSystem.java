@@ -1,31 +1,29 @@
 package com.brandonoium.pyre.systems;
 
-import com.brandonoium.pyre.components.BumpMovementComponent;
-import com.brandonoium.pyre.components.CameraTargetComponent;
-import com.brandonoium.pyre.components.IsRemoteExamineComponent;
-import com.brandonoium.pyre.components.PlayerControlComponent;
+import com.brandonoium.pyre.components.*;
 import com.brandonoium.pyre.ecs.EcsWorld;
 import com.brandonoium.pyre.ecs.IComponent;
 import com.brandonoium.pyre.ecs.ISystem;
 import com.brandonoium.pyre.entitybuilders.RemoteExamineBuilder;
+import com.brandonoium.pyre.gamestates.PlayerTurnState;
+import com.brandonoium.pyre.gamestates.StateManager;
 import com.brandonoium.pyre.util.input.KeyInput;
 
 import java.util.Map;
 
-public class PlayerInputSystem implements ISystem {
+public class PlayerInputSystem extends ISystem {
 
-    private EcsWorld world;
+    //private EcsWorld world;
     private long playerEntityId;
+    private PlayerTurnState playerTurnState;
 
 
-    public PlayerInputSystem(long playerEntityId) {
+    public PlayerInputSystem(EcsWorld world, long playerEntityId, PlayerTurnState playerTurnState) {
+        super(world);
         this.playerEntityId = playerEntityId;
+        this.playerTurnState = playerTurnState;
     }
 
-    @Override
-    public void init(EcsWorld world) {
-        this.world = world;
-    }
 
     @Override
     public void run() {
@@ -68,6 +66,10 @@ public class PlayerInputSystem implements ISystem {
                 toggleExamineMode(targetEntity);
                 break;
             }
+            case WAIT -> {
+                waitAction(targetEntity);
+                break;
+            }
         }
     }
 
@@ -75,6 +77,11 @@ public class PlayerInputSystem implements ISystem {
     private void moveAction(long targetId, int dx, int dy) {
         world.addComponent(targetId, new BumpMovementComponent(dx, dy));
 
+        if(targetId == playerEntityId)
+            endPlayerTurn();
+    }
+
+    private void waitAction(long targetId) {
         if(targetId == playerEntityId)
             endPlayerTurn();
     }
@@ -89,5 +96,7 @@ public class PlayerInputSystem implements ISystem {
 
     private void endPlayerTurn() {
         System.out.println("End player's turn.");
+        //world.addComponent(playerEntityId, new EndOfTurnComponent());
+        playerTurnState.enemyTurnState();
     }
 }

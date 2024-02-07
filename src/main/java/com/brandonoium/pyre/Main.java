@@ -2,14 +2,18 @@ package com.brandonoium.pyre;
 
 import com.brandonoium.bithorse.BitHorseTerminal;
 import com.brandonoium.bithorse.InvalidCharSetException;
+import com.brandonoium.pyre.components.AIControlComponent;
 import com.brandonoium.pyre.components.LocationComponent;
+import com.brandonoium.pyre.components.SimpleMovementTargetComponent;
 import com.brandonoium.pyre.components.TerminalRenderableComponent;
 import com.brandonoium.pyre.ecs.EcsWorld;
 import com.brandonoium.pyre.entitybuilders.PlayerBuilder;
+import com.brandonoium.pyre.gamestates.EnemyTurnState;
 import com.brandonoium.pyre.gamestates.PlayerTurnState;
 import com.brandonoium.pyre.gamestates.StateManager;
 import com.brandonoium.pyre.systems.*;
 import com.brandonoium.pyre.ui.BasicWidget;
+import com.brandonoium.pyre.util.Location;
 import com.brandonoium.pyre.util.input.DefaultKeyInputMap;
 import com.brandonoium.pyre.util.input.InputService;
 import com.brandonoium.pyre.util.input.KeyInputMap;
@@ -35,11 +39,17 @@ public class Main {
         EcsWorld world = new EcsWorld();
         long playerEntityId = PlayerBuilder.buildPlayer(world);
         StateManager stateMgr = new StateManager(world);
-        PlayerTurnState playerTurnState = new PlayerTurnState();
+        PlayerTurnState playerTurnState = new PlayerTurnState(stateMgr);
         stateMgr.setCurrentState(playerTurnState);
+        EnemyTurnState enemyTurnState = new EnemyTurnState(stateMgr);
+        playerTurnState.setEnemyTurnState(enemyTurnState);
+        enemyTurnState.setPlayerTurnState(playerTurnState);
 
-        PlayerInputSystem playerInput = new PlayerInputSystem(playerEntityId);
-        playerInput.init(world);
+        StateChangeSystem stateChangeSystem = new StateChangeSystem(world, enemyTurnState);
+        AiControlSystem aiControlSystem = new AiControlSystem(world);
+        FollowSimpleTargetSystem followSystem = new FollowSimpleTargetSystem(world);
+
+        PlayerInputSystem playerInput = new PlayerInputSystem(world, playerEntityId, playerTurnState);
         InputService input = new InputService(playerInput);
         input.setKeyInputMap(DefaultKeyInputMap.getDefaultKeyInputMap());
         term.addKeyListener(input);
@@ -53,26 +63,29 @@ public class Main {
         BasicWidget root = new BasicWidget(40, 30, 0, 0);
         BasicWidget renderingWidget = new BasicWidget(40, 30, 0, 0);
         root.addChild(renderingWidget);
-        TerminalRenderingSystem tRend = new TerminalRenderingSystem(renderingWidget, map, 0, 0);
-        tRend.init(world);
+        TerminalRenderingSystem tRend = new TerminalRenderingSystem(world, renderingWidget, map, 0, 0);
 
         long enemy = world.newEntityId();
         world.addComponent(enemy, new LocationComponent(5, 5));
         world.addComponent(enemy, new TerminalRenderableComponent('W'));
+        //world.addComponent(enemy, new AIControlComponent());
+        world.addComponent(enemy, new SimpleMovementTargetComponent(new Location(35, 15)));
 
-        BumpMovementSystem bump = new BumpMovementSystem();
-        bump.init(world);
-        FramePacingSystem framePacing = new FramePacingSystem(16);
-        framePacing.init(world);
+        BumpMovementSystem bump = new BumpMovementSystem(world);
+        FramePacingSystem framePacing = new FramePacingSystem(world, 16);
 
-        FinalTerminalRenderingSystem finalRend = new FinalTerminalRenderingSystem(term, root);
-        finalRend.init(world);
+        FinalTerminalRenderingSystem finalRend = new FinalTerminalRenderingSystem(world, term, root);
 
         playerTurnState.addSystem(playerInput);
         playerTurnState.addSystem(bump);
         playerTurnState.addSystem(framePacing);
         playerTurnState.addSystem(tRend);
         playerTurnState.addSystem(finalRend);
+
+        enemyTurnState.addSystem(aiControlSystem);
+        enemyTurnState.addSystem(followSystem);
+        enemyTurnState.addSystem(bump);
+        enemyTurnState.addSystem(stateChangeSystem);
 
         while(true) {
             stateMgr.runSystems();
