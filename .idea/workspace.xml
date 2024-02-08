@@ -4,29 +4,22 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6953ccaf-93d2-4296-baea-04fc4ae22045" name="Changes" comment="Enabled actual movement and created remote examine ability">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/brandonoium/pyre/components/AIControlComponent.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/brandonoium/pyre/components/PointPatrolAIComponent.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/brandonoium/pyre/components/SimpleMovementTargetComponent.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/brandonoium/pyre/systems/AiControlSystem.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/brandonoium/pyre/systems/FollowSimpleTargetSystem.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/brandonoium/pyre/systems/StateChangeSystem.java" afterDir="false" />
+    <list default="true" id="6953ccaf-93d2-4296-baea-04fc4ae22045" name="Changes" comment="Added some AI systems and enabled AI turns">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/brandonoium/pyre/components/DescriptionComponent.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/brandonoium/pyre/components/MoveableComponent.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/brandonoium/pyre/components/NameComponent.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/brandonoium/pyre/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/brandonoium/pyre/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/brandonoium/pyre/ecs/ISystem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/brandonoium/pyre/ecs/ISystem.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/brandonoium/pyre/gamestates/EnemyTurnState.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/brandonoium/pyre/gamestates/EnemyTurnState.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/brandonoium/pyre/gamestates/GameState.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/brandonoium/pyre/gamestates/GameState.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/brandonoium/pyre/gamestates/PlayerTurnState.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/brandonoium/pyre/gamestates/PlayerTurnState.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/brandonoium/pyre/systems/BumpMovementSystem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/brandonoium/pyre/systems/BumpMovementSystem.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/brandonoium/pyre/systems/FinalTerminalRenderingSystem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/brandonoium/pyre/systems/FinalTerminalRenderingSystem.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/brandonoium/pyre/systems/FramePacingSystem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/brandonoium/pyre/systems/FramePacingSystem.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/brandonoium/pyre/entitybuilders/PlayerBuilder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/brandonoium/pyre/entitybuilders/PlayerBuilder.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/brandonoium/pyre/entitybuilders/RemoteExamineBuilder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/brandonoium/pyre/entitybuilders/RemoteExamineBuilder.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/brandonoium/pyre/systems/PlayerInputSystem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/brandonoium/pyre/systems/PlayerInputSystem.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/brandonoium/pyre/systems/TerminalRenderingSystem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/brandonoium/pyre/systems/TerminalRenderingSystem.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/brandonoium/pyre/util/input/DefaultKeyInputMap.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/brandonoium/pyre/util/input/DefaultKeyInputMap.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/brandonoium/pyre/util/input/InputAction.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/brandonoium/pyre/util/input/InputAction.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/brandonoium/pyre/util/map/MapService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/brandonoium/pyre/util/map/MapService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/brandonoium/pyre/util/map/MapTileType.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/brandonoium/pyre/util/map/MapTileType.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/brandonoium/pyre/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/brandonoium/pyre/Main.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/brandonoium/pyre/gamestates/GameState.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/brandonoium/pyre/gamestates/GameState.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/brandonoium/pyre/util/input/InputAction.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/brandonoium/pyre/util/input/InputAction.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/brandonoium/pyre/ecs/ISystem.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/brandonoium/pyre/ecs/ISystem.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/brandonoium/pyre/systems/TerminalRenderingSystem.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/brandonoium/pyre/systems/TerminalRenderingSystem.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/brandonoium/pyre/util/map/MapService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/brandonoium/pyre/util/map/MapService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/brandonoium/pyre/util/map/MapTileType.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/brandonoium/pyre/util/map/MapTileType.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -79,6 +72,9 @@
       <recent name="com.brandonoium.pyre.util.map" />
       <recent name="com.brandonoium.pyre" />
     </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.brandonoium.pyre.components" />
+    </key>
   </component>
   <component name="RunManager" selected="Application.Main">
     <list>
@@ -114,7 +110,7 @@
       <workItem from="1707145051607" duration="1209000" />
       <workItem from="1707153445619" duration="15171000" />
       <workItem from="1707228577961" duration="17360000" />
-      <workItem from="1707314513888" duration="21625000" />
+      <workItem from="1707314513888" duration="37557000" />
     </task>
     <task id="LOCAL-00001" summary="Initial Commit">
       <option name="closed" value="true" />
@@ -140,7 +136,15 @@
       <option name="project" value="LOCAL" />
       <updated>1707252437760</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Added some AI systems and enabled AI turns">
+      <option name="closed" value="true" />
+      <created>1707341638573</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1707341638573</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -173,6 +177,7 @@
     <MESSAGE value="Initial Commit" />
     <MESSAGE value="Added GameStates and more input framework" />
     <MESSAGE value="Enabled actual movement and created remote examine ability" />
-    <option name="LAST_COMMIT_MESSAGE" value="Enabled actual movement and created remote examine ability" />
+    <MESSAGE value="Added some AI systems and enabled AI turns" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added some AI systems and enabled AI turns" />
   </component>
 </project>

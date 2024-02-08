@@ -49,16 +49,18 @@ public class Main {
         AiControlSystem aiControlSystem = new AiControlSystem(world);
         FollowSimpleTargetSystem followSystem = new FollowSimpleTargetSystem(world);
 
-        PlayerInputSystem playerInput = new PlayerInputSystem(world, playerEntityId, playerTurnState);
-        InputService input = new InputService(playerInput);
-        input.setKeyInputMap(DefaultKeyInputMap.getDefaultKeyInputMap());
-        term.addKeyListener(input);
+
 
         term.setFgBgColors(Color.GRAY, Color.DARK_GRAY);
 
 
         MapService map = new MapService();
         map.generateMap(new EmptyRoomMapGenerator(40, 30));
+
+        PlayerInputSystem playerInput = new PlayerInputSystem(world, playerEntityId, playerTurnState, map);
+        InputService input = new InputService(playerInput);
+        input.setKeyInputMap(DefaultKeyInputMap.getDefaultKeyInputMap());
+        term.addKeyListener(input);
 
         BasicWidget root = new BasicWidget(40, 30, 0, 0);
         BasicWidget renderingWidget = new BasicWidget(40, 30, 0, 0);

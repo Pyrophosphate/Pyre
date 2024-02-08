@@ -18,6 +18,9 @@ public class PlayerBuilder {
         world.addComponent(playerId, new TerminalRenderableComponent('@'));
         world.addComponent(playerId, new CameraTargetComponent(1));
         world.addComponent(playerId, new PlayerControlComponent(1));
+        world.addComponent(playerId, new NameComponent("Player"));
+        world.addComponent(playerId, new DescriptionComponent("This is you. The player. You're the player."));
+        world.addComponent(playerId, new MoveableComponent(true, false, false));
 
         return playerId;
     }

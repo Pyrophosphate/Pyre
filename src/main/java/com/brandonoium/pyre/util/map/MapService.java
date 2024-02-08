@@ -22,6 +22,13 @@ public class MapService {
             return false;
     }
 
+    public boolean canFlyAt(int x, int y) {
+        if(map.isLocationValid(x, y))
+            return map.getTileAt(x, y).canFly();
+        else
+            return false;
+    }
+
     public boolean isOpaque(int x, int y) {
         if(map.isLocationValid(x, y))
             return map.getTileAt(x, y).isOpaque();
@@ -34,6 +41,10 @@ public class MapService {
             return map.getTileAt(x, y).getGlyph();
         else
             return 0;
+    }
+
+    public boolean isValidLocation(int x, int y) {
+        return map.isLocationValid(x, y);
     }
 
 

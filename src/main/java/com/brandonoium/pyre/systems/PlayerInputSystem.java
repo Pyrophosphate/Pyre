@@ -7,7 +7,9 @@ import com.brandonoium.pyre.ecs.ISystem;
 import com.brandonoium.pyre.entitybuilders.RemoteExamineBuilder;
 import com.brandonoium.pyre.gamestates.PlayerTurnState;
 import com.brandonoium.pyre.gamestates.StateManager;
+import com.brandonoium.pyre.util.Location;
 import com.brandonoium.pyre.util.input.KeyInput;
+import com.brandonoium.pyre.util.map.MapService;
 
 import java.util.Map;
 
@@ -16,12 +18,14 @@ public class PlayerInputSystem extends ISystem {
     //private EcsWorld world;
     private long playerEntityId;
     private PlayerTurnState playerTurnState;
+    private MapService map;
 
 
-    public PlayerInputSystem(EcsWorld world, long playerEntityId, PlayerTurnState playerTurnState) {
+    public PlayerInputSystem(EcsWorld world, long playerEntityId, PlayerTurnState playerTurnState, MapService map) {
         super(world);
         this.playerEntityId = playerEntityId;
         this.playerTurnState = playerTurnState;
+        this.map = map;
     }
 
 
@@ -75,10 +79,33 @@ public class PlayerInputSystem extends ISystem {
 
 
     private void moveAction(long targetId, int dx, int dy) {
-        world.addComponent(targetId, new BumpMovementComponent(dx, dy));
+        MoveableComponent moveable = ((MoveableComponent) world.getComponent(targetId, MoveableComponent.class));
+        if(moveable != null) {
+            Location entityLocation = ((LocationComponent) world.getComponent(targetId, LocationComponent.class)).getLoc();
 
-        if(targetId == playerEntityId)
-            endPlayerTurn();
+            if (canMove(moveable, entityLocation.getX() + dx, entityLocation.getY() + dy)) {
+                world.addComponent(targetId, new BumpMovementComponent(dx, dy));
+
+                if(targetId == playerEntityId)
+                    endPlayerTurn();
+            }
+        }
+    }
+
+    private boolean canMove(MoveableComponent moveable, int targetX, int targetY) {
+        if (map.isValidLocation(targetX, targetY)) {
+            if (moveable.canPhase()) {
+                return true;
+            } else if (moveable.canFly() && map.canFlyAt(targetX, targetY)) {
+                return true;
+            } else if (moveable.canWalk() && map.canWalkAt(targetX, targetY)) {
+                return true;
+            } else {
+                return false;
+            }
+        } else {
+            return false;
+        }
     }
 
     private void waitAction(long targetId) {
@@ -95,8 +122,6 @@ public class PlayerInputSystem extends ISystem {
     }
 
     private void endPlayerTurn() {
-        System.out.println("End player's turn.");
-        //world.addComponent(playerEntityId, new EndOfTurnComponent());
         playerTurnState.enemyTurnState();
     }
 }

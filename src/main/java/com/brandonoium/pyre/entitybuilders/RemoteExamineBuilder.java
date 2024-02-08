@@ -16,6 +16,7 @@ public class RemoteExamineBuilder {
         world.addComponent(newId, new PlayerControlComponent(0));
         world.addComponent(newId, new CameraTargetComponent(0));
         world.addComponent(newId, new IsRemoteExamineComponent());
+        world.addComponent(newId, new MoveableComponent(false, false, true));
 
         return newId;
     }
