@@ -1,9 +1,6 @@
 package com.brandonoium.pyre.systems;
 
-import com.brandonoium.pyre.components.AIControlComponent;
-import com.brandonoium.pyre.components.BumpMovementComponent;
-import com.brandonoium.pyre.components.LocationComponent;
-import com.brandonoium.pyre.components.SimpleMovementTargetComponent;
+import com.brandonoium.pyre.components.*;
 import com.brandonoium.pyre.ecs.EcsWorld;
 import com.brandonoium.pyre.ecs.IComponent;
 import com.brandonoium.pyre.ecs.ISystem;
@@ -11,6 +8,7 @@ import com.brandonoium.pyre.util.Location;
 
 import java.util.ArrayList;
 import java.util.Map;
+import java.util.Map.Entry;
 
 public class FollowSimpleTargetSystem extends ISystem {
 
@@ -27,7 +25,7 @@ public class FollowSimpleTargetSystem extends ISystem {
         Map<Long, IComponent> movers = world.getComponentsByType(SimpleMovementTargetComponent.class);
         ArrayList<Long> idsToRemove = new ArrayList<>();
 
-        for(Map.Entry<Long, IComponent> a : movers.entrySet()) {
+        for(Entry<Long, IComponent> a : movers.entrySet()) {
             SimpleMovementTargetComponent ai = (SimpleMovementTargetComponent) a.getValue();
             Location current = ((LocationComponent) world.getComponentsById(a.getKey()).get(LocationComponent.class)).getLoc();
             Location target = ai.getTarget();
@@ -56,6 +54,7 @@ public class FollowSimpleTargetSystem extends ISystem {
 
         for(long id : idsToRemove) {
             world.removeComponent(id, SimpleMovementTargetComponent.class);
+            world.addComponent(id, new MessageLogOutputComponent("Finished moving."));
         }
     }
 }

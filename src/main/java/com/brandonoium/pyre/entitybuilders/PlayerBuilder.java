@@ -14,7 +14,7 @@ public class PlayerBuilder {
     public static long buildPlayer(EcsWorld world) {
         long playerId = world.newEntityId();
         world.setPlayerEntityId(playerId);
-        world.addComponent(playerId, new LocationComponent(20, 15));
+        world.addComponent(playerId, new LocationComponent(10, 5));
         world.addComponent(playerId, new TerminalRenderableComponent('@'));
         world.addComponent(playerId, new CameraTargetComponent(1));
         world.addComponent(playerId, new PlayerControlComponent(1));

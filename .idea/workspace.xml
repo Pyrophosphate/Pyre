@@ -4,22 +4,19 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6953ccaf-93d2-4296-baea-04fc4ae22045" name="Changes" comment="Added some AI systems and enabled AI turns">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/brandonoium/pyre/components/DescriptionComponent.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/brandonoium/pyre/components/MoveableComponent.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/brandonoium/pyre/components/NameComponent.java" afterDir="false" />
+    <list default="true" id="6953ccaf-93d2-4296-baea-04fc4ae22045" name="Changes" comment="Enabled collision checking before movement">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/brandonoium/pyre/components/MessageLogOutputComponent.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/brandonoium/pyre/systems/MessageLogSystem.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/brandonoium/pyre/ui/MessageLogWidget.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/brandonoium/bithorse/BitHorseTerminalBuffer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/brandonoium/bithorse/BitHorseTerminalBuffer.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/brandonoium/pyre/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/brandonoium/pyre/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/brandonoium/pyre/entitybuilders/PlayerBuilder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/brandonoium/pyre/entitybuilders/PlayerBuilder.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/brandonoium/pyre/entitybuilders/RemoteExamineBuilder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/brandonoium/pyre/entitybuilders/RemoteExamineBuilder.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/brandonoium/pyre/systems/FollowSimpleTargetSystem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/brandonoium/pyre/systems/FollowSimpleTargetSystem.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/brandonoium/pyre/systems/PlayerInputSystem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/brandonoium/pyre/systems/PlayerInputSystem.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/brandonoium/pyre/util/map/MapService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/brandonoium/pyre/util/map/MapService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/brandonoium/pyre/util/map/MapTileType.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/brandonoium/pyre/util/map/MapTileType.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/brandonoium/pyre/systems/TerminalRenderingSystem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/brandonoium/pyre/systems/TerminalRenderingSystem.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/brandonoium/bithorse/BitHorseTerminalBuffer.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/brandonoium/bithorse/BitHorseTerminalBuffer.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/brandonoium/pyre/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/brandonoium/pyre/Main.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/brandonoium/pyre/ecs/ISystem.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/brandonoium/pyre/ecs/ISystem.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/brandonoium/pyre/systems/TerminalRenderingSystem.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/brandonoium/pyre/systems/TerminalRenderingSystem.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/brandonoium/pyre/util/map/MapService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/brandonoium/pyre/util/map/MapService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/brandonoium/pyre/util/map/MapTileType.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/brandonoium/pyre/util/map/MapTileType.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -49,24 +46,24 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Application.Main.executor&quot;: &quot;Run&quot;,
-    &quot;Maven.Pyre [verify].executor&quot;: &quot;Run&quot;,
-    &quot;Maven.Pyre.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Application.Main.executor": "Run",
+    "Maven.Pyre [verify].executor": "Run",
+    "Maven.Pyre.executor": "Run",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "git-widget-placeholder": "master",
+    "kotlin-language-version-configured": "true",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
       <recent name="com.brandonoium.pyre.util.map" />
@@ -110,7 +107,8 @@
       <workItem from="1707145051607" duration="1209000" />
       <workItem from="1707153445619" duration="15171000" />
       <workItem from="1707228577961" duration="17360000" />
-      <workItem from="1707314513888" duration="37557000" />
+      <workItem from="1707314513888" duration="37611000" />
+      <workItem from="1707486256229" duration="22007000" />
     </task>
     <task id="LOCAL-00001" summary="Initial Commit">
       <option name="closed" value="true" />
@@ -144,7 +142,15 @@
       <option name="project" value="LOCAL" />
       <updated>1707341638573</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Enabled collision checking before movement">
+      <option name="closed" value="true" />
+      <created>1707425920419</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1707425920419</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -178,6 +184,7 @@
     <MESSAGE value="Added GameStates and more input framework" />
     <MESSAGE value="Enabled actual movement and created remote examine ability" />
     <MESSAGE value="Added some AI systems and enabled AI turns" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added some AI systems and enabled AI turns" />
+    <MESSAGE value="Enabled collision checking before movement" />
+    <option name="LAST_COMMIT_MESSAGE" value="Enabled collision checking before movement" />
   </component>
 </project>

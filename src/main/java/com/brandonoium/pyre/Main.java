@@ -13,6 +13,7 @@ import com.brandonoium.pyre.gamestates.PlayerTurnState;
 import com.brandonoium.pyre.gamestates.StateManager;
 import com.brandonoium.pyre.systems.*;
 import com.brandonoium.pyre.ui.BasicWidget;
+import com.brandonoium.pyre.ui.MessageLogWidget;
 import com.brandonoium.pyre.util.Location;
 import com.brandonoium.pyre.util.input.DefaultKeyInputMap;
 import com.brandonoium.pyre.util.input.InputService;
@@ -63,9 +64,12 @@ public class Main {
         term.addKeyListener(input);
 
         BasicWidget root = new BasicWidget(40, 30, 0, 0);
-        BasicWidget renderingWidget = new BasicWidget(40, 30, 0, 0);
+        BasicWidget renderingWidget = new BasicWidget(40, 36, 0, 4);
         root.addChild(renderingWidget);
+        MessageLogWidget messageWidget = new MessageLogWidget(40, 4, 0, 0, 10);
+        root.addChild(messageWidget);
         TerminalRenderingSystem tRend = new TerminalRenderingSystem(world, renderingWidget, map, 0, 0);
+        MessageLogSystem messageSystem = new MessageLogSystem(world, messageWidget);
 
         long enemy = world.newEntityId();
         world.addComponent(enemy, new LocationComponent(5, 5));
@@ -82,6 +86,7 @@ public class Main {
         playerTurnState.addSystem(bump);
         playerTurnState.addSystem(framePacing);
         playerTurnState.addSystem(tRend);
+        playerTurnState.addSystem(messageSystem);
         playerTurnState.addSystem(finalRend);
 
         enemyTurnState.addSystem(aiControlSystem);

@@ -52,8 +52,8 @@ public class TerminalRenderingSystem  extends ISystem {
         LocationComponent lc = (LocationComponent) world.getComponentsById(targetEntity).get(LocationComponent.class);
         camX = lc.getLoc().getX();
         camY = lc.getLoc().getY();
-        int xOffset = (width / 2) - camX;
-        int yOffset = (height / 2) - camY;
+        int xOffset = camX - (width / 2);
+        int yOffset = camY - (height / 2);
 
         drawMap(xOffset, yOffset);
 
@@ -65,7 +65,7 @@ public class TerminalRenderingSystem  extends ISystem {
                 LocationComponent l = (LocationComponent) world.getComponentsById(r.getKey()).get(LocationComponent.class);
 
                 try {
-                    widget.getBuffer().setCursor(l.getLoc().getX() + xOffset, l.getLoc().getY() + yOffset);
+                    widget.getBuffer().setCursor(l.getLoc().getX() - xOffset, l.getLoc().getY() - yOffset);
                     widget.getBuffer().printGlyph(rend.getGlyph());
                 } catch (CursorOutOfBoundsException e) {
                     ;
@@ -84,7 +84,7 @@ public class TerminalRenderingSystem  extends ISystem {
                 try {
                     //System.out.println("Getting glyph at " + (x - xOffset) + ", " + (y - yOffset));
                     widget.getBuffer().setCursor(x, y);
-                    widget.getBuffer().printGlyph(map.getGlyphAt(x - xOffset, y - yOffset));
+                    widget.getBuffer().printGlyph(map.getGlyphAt(x + xOffset, y + yOffset));
                 } catch (CursorOutOfBoundsException e) {
                     System.out.println(e.getMessage());
                 }

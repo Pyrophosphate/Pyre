@@ -52,7 +52,7 @@ public class BitHorseTerminalBuffer {
         cx = 0;
         cy++;
         if(cy >= rows) {
-            cy = rows;
+            cy = rows - 1;
             scroll();
         }
     }
@@ -134,6 +134,14 @@ public class BitHorseTerminalBuffer {
             }
         }
         for(int y = (rows - lines); y < rows; y++) {
+            for(int x = 0; x < columns; x++) {
+                buffer[y][x] = 0;
+            }
+        }
+    }
+
+    public void clearBuffer() {
+        for(int y = 0; y < rows; y++) {
             for(int x = 0; x < columns; x++) {
                 buffer[y][x] = 0;
             }

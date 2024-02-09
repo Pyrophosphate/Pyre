@@ -109,8 +109,10 @@ public class PlayerInputSystem extends ISystem {
     }
 
     private void waitAction(long targetId) {
-        if(targetId == playerEntityId)
+        if(targetId == playerEntityId) {
             endPlayerTurn();
+            world.addComponent(targetId, new MessageLogOutputComponent("Waiting..."));
+        }
     }
 
     private void toggleExamineMode(long targetId) {
