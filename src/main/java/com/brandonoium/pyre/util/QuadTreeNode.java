@@ -90,7 +90,7 @@ public class QuadTreeNode<T> {
         }
     }
 
-    protected void growChildren() {
+    public void growChildren() {
         nw = new QuadTreeNode<T>(x, y, size/2);
         ne = new QuadTreeNode<T>(cx, y, size/2);
         sw = new QuadTreeNode<T>(x, cy, size/2);
@@ -135,17 +135,82 @@ public class QuadTreeNode<T> {
         }
     }
 
-    protected int trimTreeToMaximum(int maxCount) {
+    protected int trimTreeToMaximumCount(int maxCount) {
         int sum = 0;
-        sum += nw.trimTreeToMaximum(maxCount);
-        sum += ne.trimTreeToMaximum(maxCount);
-        sum += sw.trimTreeToMaximum(maxCount);
-        sum += se.trimTreeToMaximum(maxCount);
+        sum += nw.trimTreeToMaximumCount(maxCount);
+        sum += ne.trimTreeToMaximumCount(maxCount);
+        sum += sw.trimTreeToMaximumCount(maxCount);
+        sum += se.trimTreeToMaximumCount(maxCount);
 
         if(sum <= maxCount) {
             removeChildren();
         }
 
         return sum;
+    }
+
+
+    public QuadTreeNode<T> getNw() {
+        return nw;
+    }
+
+    public void setNw(QuadTreeNode<T> nw) {
+        this.nw = nw;
+    }
+
+    public QuadTreeNode<T> getNe() {
+        return ne;
+    }
+
+    public void setNe(QuadTreeNode<T> ne) {
+        this.ne = ne;
+    }
+
+    public QuadTreeNode<T> getSw() {
+        return sw;
+    }
+
+    public void setSw(QuadTreeNode<T> sw) {
+        this.sw = sw;
+    }
+
+    public QuadTreeNode<T> getSe() {
+        return se;
+    }
+
+    public void setSe(QuadTreeNode<T> se) {
+        this.se = se;
+    }
+
+    public boolean isLeaf() {
+        return isLeaf;
+    }
+
+    public void setLeaf(boolean leaf) {
+        isLeaf = leaf;
+    }
+
+    public int getSize() {
+        return size;
+    }
+
+    public void setSize(int size) {
+        this.size = size;
+    }
+
+    public int getX() {
+        return x;
+    }
+
+    public void setX(int x) {
+        this.x = x;
+    }
+
+    public int getY() {
+        return y;
+    }
+
+    public void setY(int y) {
+        this.y = y;
     }
 }

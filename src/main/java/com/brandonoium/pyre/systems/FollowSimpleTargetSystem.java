@@ -3,14 +3,14 @@ package com.brandonoium.pyre.systems;
 import com.brandonoium.pyre.components.*;
 import com.brandonoium.pyre.ecs.EcsWorld;
 import com.brandonoium.pyre.ecs.IComponent;
-import com.brandonoium.pyre.ecs.ISystem;
+import com.brandonoium.pyre.ecs.EcsSystem;
 import com.brandonoium.pyre.util.Location;
 
 import java.util.ArrayList;
 import java.util.Map;
 import java.util.Map.Entry;
 
-public class FollowSimpleTargetSystem extends ISystem {
+public class FollowSimpleTargetSystem extends EcsSystem {
 
     //private EcsWorld world;
 

@@ -5,13 +5,11 @@ import com.brandonoium.pyre.components.BumpMovementComponent;
 import com.brandonoium.pyre.components.LocationComponent;
 import com.brandonoium.pyre.ecs.EcsWorld;
 import com.brandonoium.pyre.ecs.IComponent;
-import com.brandonoium.pyre.ecs.ISystem;
-import com.brandonoium.pyre.util.Location;
+import com.brandonoium.pyre.ecs.EcsSystem;
 
-import java.util.ArrayList;
 import java.util.Map;
 
-public class AiControlSystem extends ISystem {
+public class AiControlSystem extends EcsSystem {
 
     //private EcsWorld world;
 

@@ -1,11 +1,10 @@
 package com.brandonoium.pyre.systems;
 
 import com.brandonoium.pyre.ecs.EcsWorld;
-import com.brandonoium.pyre.ecs.ISystem;
+import com.brandonoium.pyre.ecs.EcsSystem;
 import com.brandonoium.pyre.gamestates.EnemyTurnState;
-import com.brandonoium.pyre.gamestates.StateManager;
 
-public class StateChangeSystem extends ISystem {
+public class StateChangeSystem extends EcsSystem {
 
     private EnemyTurnState state;
 

@@ -1,11 +1,11 @@
 package com.brandonoium.pyre.systems;
 
 import com.brandonoium.pyre.ecs.EcsWorld;
-import com.brandonoium.pyre.ecs.ISystem;
+import com.brandonoium.pyre.ecs.EcsSystem;
 
 import static java.lang.Thread.sleep;
 
-public class FramePacingSystem extends ISystem {
+public class FramePacingSystem extends EcsSystem {
 
     private long lastTime;
     private long msToWait;

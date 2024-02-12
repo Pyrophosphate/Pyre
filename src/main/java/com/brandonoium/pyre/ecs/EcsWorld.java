@@ -1,11 +1,21 @@
 package com.brandonoium.pyre.ecs;
 
+import com.brandonoium.pyre.util.LocationIndex;
+
 import java.util.*;
 import java.util.Map.Entry;
 
+/**
+ * The core of the ECS design pattern, EcsWorld maintains lists of all components by type and by entityID.
+ */
 public class EcsWorld {
+    // These HashMaps are a simple way to get started with an ECS, but performance may not hold up for large projects.
+    // If performance becomes an issue, either implement a sparse array pool or grab an existing library.
     private HashMap<Long, HashMap<Class, IComponent>> componentsById;
     private HashMap<Class, HashMap<Long, IComponent>> componentsByType;
+
+    // Location is the only specific component type that will have its own index.
+    private LocationIndex componentsByLocation;
 
     private long nextEntityId = 0;
 
@@ -15,6 +25,7 @@ public class EcsWorld {
     public EcsWorld() {
         componentsById = new HashMap<>();
         componentsByType = new HashMap<>();
+        componentsByLocation = new LocationIndex();
 
         globalEntityId = newEntityId();
     }

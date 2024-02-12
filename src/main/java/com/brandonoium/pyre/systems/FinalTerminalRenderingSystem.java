@@ -2,12 +2,11 @@ package com.brandonoium.pyre.systems;
 
 import com.brandonoium.bithorse.BitHorseTerminal;
 import com.brandonoium.pyre.ecs.EcsWorld;
-import com.brandonoium.pyre.ecs.ISystem;
+import com.brandonoium.pyre.ecs.EcsSystem;
 import com.brandonoium.pyre.ui.TerminalUiWidget;
 
-public class FinalTerminalRenderingSystem extends ISystem {
+public class FinalTerminalRenderingSystem extends EcsSystem {
 
-    //private EcsWorld world;
     private BitHorseTerminal term;
     private TerminalUiWidget rootWidget;
 

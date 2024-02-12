@@ -2,6 +2,9 @@ package com.brandonoium.bithorse;
 
 import java.util.ArrayList;
 
+/**
+ * A buffer of terminal characters to be drawn, with several methods for printing strings, etc.
+ */
 public class BitHorseTerminalBuffer {
     private int[][] buffer;
     private int rows, columns;
@@ -140,6 +143,9 @@ public class BitHorseTerminalBuffer {
         }
     }
 
+    /**
+     * "Empty" the buffer by setting all character positions to 0.
+     */
     public void clearBuffer() {
         for(int y = 0; y < rows; y++) {
             for(int x = 0; x < columns; x++) {
@@ -149,6 +155,12 @@ public class BitHorseTerminalBuffer {
     }
 
 
+    /**
+     * Copy data from another BitHorseTerminalBuffer into this one, starting at the given location.
+     * @param other The other buffer that will be copied into this one.
+     * @param xOffset The x position within this buffer to place the 0,0 position of the other.
+     * @param yOffset The y position within this buffer to place the 0,0 position of the other.
+     */
     public void copyFromBuffer(BitHorseTerminalBuffer other, int xOffset, int yOffset) {
         for(int y = Math.max(0, yOffset); y < Math.min(rows, yOffset + other.rows); y++) {
             for(int x = Math.max(0, xOffset); x < Math.min(columns, xOffset + other.columns); x++) {

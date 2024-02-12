@@ -1,6 +1,6 @@
 package com.brandonoium.pyre.gamestates;
 
-import com.brandonoium.pyre.ecs.ISystem;
+import com.brandonoium.pyre.ecs.EcsSystem;
 
 import java.util.LinkedList;
 import java.util.Queue;
@@ -11,7 +11,7 @@ public class PlayerTurnState implements GameState {
     private EnemyTurnState enemyTurnState;
 
 
-    private Queue<ISystem> systemQueue;
+    private Queue<EcsSystem> systemQueue;
 
     public PlayerTurnState(StateManager stateManager) {
         this.stateManager = stateManager;
@@ -24,18 +24,18 @@ public class PlayerTurnState implements GameState {
 
 
     @Override
-    public void addSystem(ISystem sys) {
+    public void addSystem(EcsSystem sys) {
         systemQueue.add(sys);
     }
 
     @Override
-    public Queue<ISystem> getSystems() {
+    public Queue<EcsSystem> getSystems() {
         return systemQueue;
     }
 
     @Override
     public GameState runSystems() {
-        for(ISystem s : systemQueue) {
+        for(EcsSystem s : systemQueue) {
             s.run();
         }
 

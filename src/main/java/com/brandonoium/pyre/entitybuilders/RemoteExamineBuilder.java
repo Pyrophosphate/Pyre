@@ -6,6 +6,9 @@ import com.brandonoium.pyre.util.Location;
 
 public class RemoteExamineBuilder {
 
+    /**
+     * Builds a "remote examine" entity. That is, if you press 'x' to look around you, this is the actual entity that does the looking around.
+     */
     public static long buildRemoteExamine(EcsWorld world, long playerId) {
         long newId = world.newEntityId();
 
@@ -13,8 +16,8 @@ public class RemoteExamineBuilder {
 
         world.addComponent(newId, new LocationComponent(playerLocation.copy()));
         world.addComponent(newId, new TerminalRenderableComponent('X'));
-        world.addComponent(newId, new PlayerControlComponent(0));
-        world.addComponent(newId, new CameraTargetComponent(0));
+        world.addComponent(newId, new PlayerControlComponent(10));
+        world.addComponent(newId, new CameraTargetComponent(10));
         world.addComponent(newId, new IsRemoteExamineComponent());
         world.addComponent(newId, new MoveableComponent(false, false, true));
 

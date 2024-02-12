@@ -2,17 +2,16 @@ package com.brandonoium.pyre.systems;
 
 import com.brandonoium.pyre.components.BumpMovementComponent;
 import com.brandonoium.pyre.components.LocationComponent;
-import com.brandonoium.pyre.components.TerminalRenderableComponent;
 import com.brandonoium.pyre.ecs.EcsWorld;
 import com.brandonoium.pyre.ecs.IComponent;
-import com.brandonoium.pyre.ecs.ISystem;
+import com.brandonoium.pyre.ecs.EcsSystem;
 import com.brandonoium.pyre.util.Location;
 
 import java.util.ArrayList;
 import java.util.Map;
 import java.util.Map.Entry;
 
-public class BumpMovementSystem extends ISystem {
+public class BumpMovementSystem extends EcsSystem {
 
     //private EcsWorld world;
 

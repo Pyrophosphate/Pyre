@@ -1,11 +1,13 @@
 package com.brandonoium.pyre.ui;
 
 import com.brandonoium.bithorse.BitHorseTerminalBuffer;
-import com.brandonoium.bithorse.BitTermCharSet;
 import com.brandonoium.bithorse.CharSetMap;
 
 import java.util.ArrayDeque;
 
+/**
+ * A terminal widget for displaying a list of arbitrary text messages to the player. Messages are shown in chronological order, with the most recent always at the bottom. Old messages will scroll off the top of the widget.
+ */
 public class MessageLogWidget extends TerminalUiWidget {
 
     private int maxCapacity;
@@ -26,7 +28,7 @@ public class MessageLogWidget extends TerminalUiWidget {
         newMessages.add(msg);
     }
 
-    public void shiftOldMessages() {
+    private void shiftOldMessages() {
         for(String msg : newMessages) {
             messageList.add(msg);
         }

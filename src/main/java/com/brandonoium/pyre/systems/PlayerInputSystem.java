@@ -3,17 +3,23 @@ package com.brandonoium.pyre.systems;
 import com.brandonoium.pyre.components.*;
 import com.brandonoium.pyre.ecs.EcsWorld;
 import com.brandonoium.pyre.ecs.IComponent;
-import com.brandonoium.pyre.ecs.ISystem;
+import com.brandonoium.pyre.ecs.EcsSystem;
 import com.brandonoium.pyre.entitybuilders.RemoteExamineBuilder;
 import com.brandonoium.pyre.gamestates.PlayerTurnState;
-import com.brandonoium.pyre.gamestates.StateManager;
 import com.brandonoium.pyre.util.Location;
 import com.brandonoium.pyre.util.input.KeyInput;
 import com.brandonoium.pyre.util.map.MapService;
 
 import java.util.Map;
 
-public class PlayerInputSystem extends ISystem {
+/**
+ * A system that turns keyboard (for now) inputs into actions that can be assigned to the player object.
+ *
+ * The entity that receives the action is the PlayerControlComponent with the highest priority.
+ *
+ * PlayerInputSystem extends EcsSystem, but at this time, the "run()" method does nothing. run() may be used for mouse/joystick movement polling, if desired.
+ */
+public class PlayerInputSystem extends EcsSystem {
 
     //private EcsWorld world;
     private long playerEntityId;
@@ -38,13 +44,13 @@ public class PlayerInputSystem extends ISystem {
     public void doAction(KeyInput input) {
 
         Map<Long, IComponent> inputTargets = world.getComponentsByType(PlayerControlComponent.class);
-        int minPriority = Integer.MAX_VALUE;
+        int maxPriority = Integer.MIN_VALUE;
         long targetEntity = 0;
         for(Map.Entry<Long, IComponent> c : inputTargets.entrySet()) {
             PlayerControlComponent comp = (PlayerControlComponent) c.getValue();
-            if(comp.getPriority() < minPriority) {
+            if(comp.getPriority() > maxPriority) {
                 targetEntity = c.getKey();
-                minPriority = comp.getPriority();
+                maxPriority = comp.getPriority();
             }
         }
 

@@ -1,10 +1,10 @@
 package com.brandonoium.pyre.ecs;
 
-public class ISystem {
+public class EcsSystem {
 
     protected EcsWorld world;
 
-    public ISystem(EcsWorld world) {
+    public EcsSystem(EcsWorld world) {
         this.world = world;
     }
 
