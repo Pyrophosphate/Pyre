@@ -4,28 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6953ccaf-93d2-4296-baea-04fc4ae22045" name="Changes" comment="Added MessageLogSystem">
+    <list default="true" id="6953ccaf-93d2-4296-baea-04fc4ae22045" name="Changes" comment="Started adding some Javadoc and various other small cleanup operations&#10;Began implementing LocationIndex">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/brandonoium/bithorse/BitHorseTerminalBuffer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/brandonoium/bithorse/BitHorseTerminalBuffer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/brandonoium/pyre/ecs/EcsWorld.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/brandonoium/pyre/ecs/EcsWorld.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/brandonoium/pyre/ecs/ISystem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/brandonoium/pyre/ecs/EcsSystem.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/brandonoium/pyre/entitybuilders/RemoteExamineBuilder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/brandonoium/pyre/entitybuilders/RemoteExamineBuilder.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/brandonoium/pyre/gamestates/EnemyTurnState.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/brandonoium/pyre/gamestates/EnemyTurnState.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/brandonoium/pyre/gamestates/GameState.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/brandonoium/pyre/gamestates/GameState.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/brandonoium/pyre/gamestates/PlayerTurnState.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/brandonoium/pyre/gamestates/PlayerTurnState.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/brandonoium/pyre/systems/AiControlSystem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/brandonoium/pyre/systems/AiControlSystem.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/brandonoium/pyre/systems/BumpMovementSystem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/brandonoium/pyre/systems/BumpMovementSystem.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/brandonoium/pyre/systems/FinalTerminalRenderingSystem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/brandonoium/pyre/systems/FinalTerminalRenderingSystem.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/brandonoium/pyre/systems/FollowSimpleTargetSystem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/brandonoium/pyre/systems/FollowSimpleTargetSystem.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/brandonoium/pyre/systems/FramePacingSystem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/brandonoium/pyre/systems/FramePacingSystem.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/brandonoium/pyre/systems/MessageLogSystem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/brandonoium/pyre/systems/MessageLogSystem.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/brandonoium/pyre/systems/PlayerInputSystem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/brandonoium/pyre/systems/PlayerInputSystem.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/brandonoium/pyre/systems/StateChangeSystem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/brandonoium/pyre/systems/StateChangeSystem.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/brandonoium/pyre/systems/TerminalRenderingSystem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/brandonoium/pyre/systems/TerminalRenderingSystem.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/brandonoium/pyre/ui/MessageLogWidget.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/brandonoium/pyre/ui/MessageLogWidget.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/brandonoium/pyre/util/LocationIndex.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/brandonoium/pyre/util/LocationIndex.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/brandonoium/pyre/util/QuadTreeNode.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/brandonoium/pyre/util/QuadTreeNode.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/brandonoium/pyre/systems/TerminalRenderingSystem.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/brandonoium/pyre/systems/TerminalRenderingSystem.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/brandonoium/bithorse/BitHorseTerminalBuffer.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/brandonoium/bithorse/BitHorseTerminalBuffer.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/brandonoium/pyre/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/brandonoium/pyre/Main.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/brandonoium/pyre/ecs/EcsWorld.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/brandonoium/pyre/ecs/EcsWorld.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/brandonoium/pyre/ecs/ISystem.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/brandonoium/pyre/gamestates/GameState.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/brandonoium/pyre/gamestates/GameState.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/brandonoium/pyre/util/LocationIndex.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/brandonoium/pyre/util/LocationIndex.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/brandonoium/pyre/util/QuadTreeNode.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/brandonoium/pyre/util/QuadTreeNode.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -118,7 +105,7 @@
       <workItem from="1707228577961" duration="17360000" />
       <workItem from="1707314513888" duration="37611000" />
       <workItem from="1707486256229" duration="22072000" />
-      <workItem from="1707746079136" duration="14839000" />
+      <workItem from="1707746079136" duration="18888000" />
     </task>
     <task id="LOCAL-00001" summary="Initial Commit">
       <option name="closed" value="true" />
@@ -168,7 +155,15 @@
       <option name="project" value="LOCAL" />
       <updated>1707512296401</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="Started adding some Javadoc and various other small cleanup operations&#10;Began implementing LocationIndex">
+      <option name="closed" value="true" />
+      <created>1707765557014</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1707765557014</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -204,6 +199,7 @@
     <MESSAGE value="Added some AI systems and enabled AI turns" />
     <MESSAGE value="Enabled collision checking before movement" />
     <MESSAGE value="Added MessageLogSystem" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added MessageLogSystem" />
+    <MESSAGE value="Started adding some Javadoc and various other small cleanup operations&#10;Began implementing LocationIndex" />
+    <option name="LAST_COMMIT_MESSAGE" value="Started adding some Javadoc and various other small cleanup operations&#10;Began implementing LocationIndex" />
   </component>
 </project>
