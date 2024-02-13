@@ -1,5 +1,7 @@
 package com.brandonoium.pyre.ecs;
 
+import com.brandonoium.pyre.components.LocationComponent;
+import com.brandonoium.pyre.util.Location;
 import com.brandonoium.pyre.util.LocationIndex;
 
 import java.util.*;
@@ -15,7 +17,7 @@ public class EcsWorld {
     private HashMap<Class, HashMap<Long, IComponent>> componentsByType;
 
     // Location is the only specific component type that will have its own index.
-    private LocationIndex componentsByLocation;
+    private LocationIndex entitiesByLocation;
 
     private long nextEntityId = 0;
 
@@ -25,7 +27,7 @@ public class EcsWorld {
     public EcsWorld() {
         componentsById = new HashMap<>();
         componentsByType = new HashMap<>();
-        componentsByLocation = new LocationIndex();
+        entitiesByLocation = new LocationIndex();
 
         globalEntityId = newEntityId();
     }
@@ -72,6 +74,10 @@ public class EcsWorld {
 
 
     public void addComponent(long entityId, IComponent component) {
+        if(component.getClass() == LocationComponent.class) {
+            Location lc = ((LocationComponent) component).getLoc();
+            entitiesByLocation.addEntityToLocation(lc.getX(), lc.getY(), entityId);
+        }
         componentsById.get(entityId).put(component.getClass(), component);
 
         if(!componentsByType.containsKey(component.getClass())){
@@ -81,6 +87,10 @@ public class EcsWorld {
     }
 
     public void removeComponent(Long entityId, IComponent component) {
+        if(component.getClass() == LocationComponent.class) {
+            Location lc = ((LocationComponent) component).getLoc();
+            entitiesByLocation.removeEntityFromLocation(lc.getX(), lc.getY(), entityId);
+        }
         componentsByType.get(component.getClass()).remove(entityId);
 
         componentsById.get(entityId).remove(component.getClass());
@@ -104,5 +114,16 @@ public class EcsWorld {
 
     public IComponent getComponent(long entityId, Class type) {
         return componentsById.get(entityId).get(type);
+    }
+
+
+    public LocationIndex getLocationIndex() {
+        return entitiesByLocation;
+    }
+
+
+    public void updateLocation(LocationComponent oldLocation, Location newLocation, long entityId) {
+        removeComponent(entityId, oldLocation);
+        addComponent(entityId, new LocationComponent(newLocation));
     }
 }

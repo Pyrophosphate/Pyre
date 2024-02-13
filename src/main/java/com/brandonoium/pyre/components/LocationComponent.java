@@ -18,7 +18,7 @@ public class LocationComponent implements IComponent {
         return loc;
     }
 
-    public void setLoc(Location loc) {
+    private void setLoc(Location loc) {
         this.loc = loc;
     }
 }

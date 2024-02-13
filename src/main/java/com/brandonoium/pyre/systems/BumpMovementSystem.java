@@ -35,7 +35,7 @@ public class BumpMovementSystem extends EcsSystem {
             } else {
                 int newX = l.getLoc().getX() + bump.getxBump();
                 int newY = l.getLoc().getY() + bump.getyBump();
-                l.setLoc(new Location(newX, newY));
+                world.updateLocation(l, new Location(newX, newY), b.getKey());
             }
 
             idsToRemove.add(b.getKey());

@@ -64,7 +64,7 @@ public class Main {
         term.addKeyListener(input);
 
         BasicWidget root = new BasicWidget(40, 30, 0, 0);
-        BasicWidget renderingWidget = new BasicWidget(40, 36, 0, 4);
+        BasicWidget renderingWidget = new BasicWidget(40, 26, 0, 4);
         root.addChild(renderingWidget);
         MessageLogWidget messageWidget = new MessageLogWidget(40, 4, 0, 0, 10);
         root.addChild(messageWidget);
@@ -82,6 +82,8 @@ public class Main {
 
         FinalTerminalRenderingSystem finalRend = new FinalTerminalRenderingSystem(world, term, root);
 
+        DebugCollisionSystem debugCollision = new DebugCollisionSystem(world);
+
         playerTurnState.addSystem(playerInput);
         playerTurnState.addSystem(bump);
         playerTurnState.addSystem(framePacing);
@@ -92,6 +94,7 @@ public class Main {
         enemyTurnState.addSystem(aiControlSystem);
         enemyTurnState.addSystem(followSystem);
         enemyTurnState.addSystem(bump);
+        enemyTurnState.addSystem(debugCollision);
         enemyTurnState.addSystem(stateChangeSystem);
 
         while(true) {

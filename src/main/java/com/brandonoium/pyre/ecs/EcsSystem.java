@@ -1,6 +1,6 @@
 package com.brandonoium.pyre.ecs;
 
-public class EcsSystem {
+public abstract class EcsSystem {
 
     protected EcsWorld world;
 

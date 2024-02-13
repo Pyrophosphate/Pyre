@@ -24,6 +24,10 @@ public class LocationIndex {
         quadTreeRoot.addDataAtLocation(x, y, entityId);
     }
 
+    public void removeEntityFromLocation(int x, int y, long entityId) {
+        quadTreeRoot.removeDataAtLocation(x, y, entityId);
+    }
+
 
     private void expandArea(GrowthDirection direction) {
         switch (direction) {

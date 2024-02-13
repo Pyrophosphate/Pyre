@@ -4,15 +4,19 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6953ccaf-93d2-4296-baea-04fc4ae22045" name="Changes" comment="Started adding some Javadoc and various other small cleanup operations&#10;Began implementing LocationIndex">
+    <list default="true" id="6953ccaf-93d2-4296-baea-04fc4ae22045" name="Changes" comment="Additional minor cleanup">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/brandonoium/pyre/components/ExamineComponent.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/brandonoium/pyre/components/HealthComponent.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/brandonoium/pyre/systems/DebugCollisionSystem.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/brandonoium/pyre/systems/ExaminationSystem.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/brandonoium/bithorse/BitHorseTerminalBuffer.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/brandonoium/bithorse/BitHorseTerminalBuffer.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/brandonoium/pyre/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/brandonoium/pyre/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/brandonoium/pyre/components/LocationComponent.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/brandonoium/pyre/components/LocationComponent.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/brandonoium/pyre/ecs/EcsSystem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/brandonoium/pyre/ecs/EcsSystem.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/brandonoium/pyre/ecs/EcsWorld.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/brandonoium/pyre/ecs/EcsWorld.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/brandonoium/pyre/systems/BumpMovementSystem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/brandonoium/pyre/systems/BumpMovementSystem.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/brandonoium/pyre/util/LocationIndex.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/brandonoium/pyre/util/LocationIndex.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/brandonoium/pyre/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/brandonoium/pyre/Main.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/brandonoium/pyre/ecs/EcsWorld.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/brandonoium/pyre/ecs/EcsWorld.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/brandonoium/pyre/ecs/ISystem.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/brandonoium/pyre/gamestates/GameState.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/brandonoium/pyre/gamestates/GameState.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/brandonoium/pyre/util/LocationIndex.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/brandonoium/pyre/util/LocationIndex.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/brandonoium/pyre/util/QuadTreeNode.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/brandonoium/pyre/util/QuadTreeNode.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -30,6 +34,9 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
   </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 5
@@ -105,7 +112,8 @@
       <workItem from="1707228577961" duration="17360000" />
       <workItem from="1707314513888" duration="37611000" />
       <workItem from="1707486256229" duration="22072000" />
-      <workItem from="1707746079136" duration="18888000" />
+      <workItem from="1707746079136" duration="20496000" />
+      <workItem from="1707844291240" duration="11940000" />
     </task>
     <task id="LOCAL-00001" summary="Initial Commit">
       <option name="closed" value="true" />
@@ -163,7 +171,15 @@
       <option name="project" value="LOCAL" />
       <updated>1707765557014</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="Additional minor cleanup">
+      <option name="closed" value="true" />
+      <created>1707772077493</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1707772077493</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -200,6 +216,7 @@
     <MESSAGE value="Enabled collision checking before movement" />
     <MESSAGE value="Added MessageLogSystem" />
     <MESSAGE value="Started adding some Javadoc and various other small cleanup operations&#10;Began implementing LocationIndex" />
-    <option name="LAST_COMMIT_MESSAGE" value="Started adding some Javadoc and various other small cleanup operations&#10;Began implementing LocationIndex" />
+    <MESSAGE value="Additional minor cleanup" />
+    <option name="LAST_COMMIT_MESSAGE" value="Additional minor cleanup" />
   </component>
 </project>
