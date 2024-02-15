@@ -1,6 +1,5 @@
 package com.brandonoium.pyre.systems;
 
-import com.brandonoium.pyre.components.BumpMovementComponent;
 import com.brandonoium.pyre.components.LocationComponent;
 import com.brandonoium.pyre.components.MessageLogOutputComponent;
 import com.brandonoium.pyre.ecs.EcsSystem;
