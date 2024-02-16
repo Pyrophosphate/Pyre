@@ -17,9 +17,22 @@ import java.util.Map.Entry;
  */
 public class MessageLogSystem extends EcsSystem {
 
+    static MessageLogSystem singleton;
+
+    public static MessageLogSystem getSystem(EcsWorld world, MessageLogWidget widget) {
+        if(singleton == null) {
+            singleton = new MessageLogSystem(world, widget);
+        }
+        return singleton;
+    }
+
+    public static MessageLogSystem getSystemIfExists() {
+        return singleton;
+    }
+
     private MessageLogWidget widget;
 
-    public MessageLogSystem(EcsWorld world, MessageLogWidget widget) {
+    private MessageLogSystem(EcsWorld world, MessageLogWidget widget) {
         super(world);
 
         this.widget = widget;

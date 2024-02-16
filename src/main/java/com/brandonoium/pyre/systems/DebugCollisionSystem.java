@@ -11,7 +11,21 @@ import java.util.List;
 import java.util.Map;
 
 public class DebugCollisionSystem extends EcsSystem {
-    public DebugCollisionSystem(EcsWorld world) {
+
+    static DebugCollisionSystem singleton;
+
+    public static DebugCollisionSystem getSystem(EcsWorld world) {
+        if(singleton == null) {
+            singleton = new DebugCollisionSystem(world);
+        }
+        return singleton;
+    }
+
+    public static DebugCollisionSystem getSystemIfExists() {
+        return singleton;
+    }
+
+    private DebugCollisionSystem(EcsWorld world) {
         super(world);
     }
 

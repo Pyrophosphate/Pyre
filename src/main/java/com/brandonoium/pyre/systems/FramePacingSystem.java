@@ -7,10 +7,23 @@ import static java.lang.Thread.sleep;
 
 public class FramePacingSystem extends EcsSystem {
 
+    static FramePacingSystem singleton;
+
+    public static FramePacingSystem getSystem(EcsWorld world, long pacing) {
+        if(singleton == null) {
+            singleton = new FramePacingSystem(world, pacing);
+        }
+        return singleton;
+    }
+
+    public static FramePacingSystem getSystemIfExists() {
+        return singleton;
+    }
+
     private long lastTime;
     private long msToWait;
 
-    public FramePacingSystem(EcsWorld world, long pacing) {
+    private FramePacingSystem(EcsWorld world, long pacing) {
         super(world);
         msToWait = pacing;
         lastTime = System.currentTimeMillis();

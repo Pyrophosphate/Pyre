@@ -1,6 +1,7 @@
 package com.brandonoium.pyre.gamestates;
 
 import com.brandonoium.pyre.ecs.EcsSystem;
+import com.brandonoium.pyre.systems.*;
 
 import java.util.LinkedList;
 import java.util.Queue;
@@ -24,8 +25,22 @@ public class PlayerTurnState implements GameState {
 
 
     @Override
+    public void initSystems() {
+        this.addSystem(PlayerInputSystem.getSystemIfExists());
+        this.addSystem(RemoteExamineSystem.getSystemIfExists());
+        this.addSystem(RemoveJustMovedComponentSystem.getSystemIfExists());
+        this.addSystem(BumpMovementSystem.getSystemIfExists());
+        this.addSystem(FramePacingSystem.getSystemIfExists());
+        this.addSystem(TerminalRenderingSystem.getSystemIfExists());
+        this.addSystem(MessageLogSystem.getSystemIfExists());
+        this.addSystem(ExaminationSystem.getSystemIfExists());
+        this.addSystem(FinalTerminalRenderingSystem.getSystemIfExists());
+    }
+
+    @Override
     public void addSystem(EcsSystem sys) {
-        systemQueue.add(sys);
+        if(sys != null)
+            systemQueue.add(sys);
     }
 
     @Override

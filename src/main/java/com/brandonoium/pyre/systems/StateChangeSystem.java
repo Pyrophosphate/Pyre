@@ -6,9 +6,23 @@ import com.brandonoium.pyre.gamestates.EnemyTurnState;
 
 public class StateChangeSystem extends EcsSystem {
 
+    static StateChangeSystem singleton;
+
+    public static StateChangeSystem getSystem(EcsWorld world, EnemyTurnState state) {
+        if(singleton == null) {
+            singleton = new StateChangeSystem(world, state);
+        }
+        return singleton;
+    }
+
+    public static StateChangeSystem getSystemIfExists() {
+        return singleton;
+    }
+
+
     private EnemyTurnState state;
 
-    public StateChangeSystem(EcsWorld world, EnemyTurnState state) {
+    private StateChangeSystem(EcsWorld world, EnemyTurnState state) {
         super(world);
         this.state = state;
     }

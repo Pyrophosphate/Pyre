@@ -1,6 +1,7 @@
 package com.brandonoium.pyre.gamestates;
 
 import com.brandonoium.pyre.ecs.EcsSystem;
+import com.brandonoium.pyre.systems.*;
 
 import java.util.LinkedList;
 import java.util.Queue;
@@ -21,8 +22,18 @@ public class EnemyTurnState implements GameState {
     }
 
     @Override
+    public void initSystems() {
+        this.addSystem(AiControlSystem.getSystemIfExists());
+        this.addSystem(FollowSimpleTargetSystem.getSystemIfExists());
+        this.addSystem(RemoveJustMovedComponentSystem.getSystemIfExists());
+        this.addSystem(BumpMovementSystem.getSystemIfExists());
+        this.addSystem(StateChangeSystem.getSystemIfExists());
+    }
+
+    @Override
     public void addSystem(EcsSystem sys) {
-        systemQueue.add(sys);
+        if(sys != null)
+            systemQueue.add(sys);
     }
 
     @Override

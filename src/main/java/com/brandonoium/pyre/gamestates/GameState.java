@@ -6,6 +6,8 @@ import java.util.Queue;
 
 public interface GameState {
 
+    public void initSystems();
+
     public void addSystem(EcsSystem sys);
 
     public Queue<EcsSystem> getSystems();

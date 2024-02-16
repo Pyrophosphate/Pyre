@@ -11,9 +11,20 @@ import java.util.Map;
 
 public class AiControlSystem extends EcsSystem {
 
-    //private EcsWorld world;
+    static AiControlSystem singleton;
 
-    public AiControlSystem(EcsWorld world) {
+    public static AiControlSystem getSystem(EcsWorld world) {
+        if(singleton == null) {
+            singleton = new AiControlSystem(world);
+        }
+        return singleton;
+    }
+
+    public static AiControlSystem getSystemIfExists() {
+        return singleton;
+    }
+
+    private AiControlSystem(EcsWorld world) {
         super(world);
     }
 

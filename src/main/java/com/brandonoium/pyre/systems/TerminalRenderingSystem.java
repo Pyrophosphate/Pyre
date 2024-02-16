@@ -20,12 +20,25 @@ import java.util.Map.Entry;
  */
 public class TerminalRenderingSystem  extends EcsSystem {
 
+    static TerminalRenderingSystem singleton;
+
+    public static TerminalRenderingSystem getSystem(EcsWorld world, TerminalUiWidget widget, MapService map, int x, int y) {
+        if(singleton == null) {
+            singleton = new TerminalRenderingSystem(world, widget, map, x, y);
+        }
+        return singleton;
+    }
+
+    public static TerminalRenderingSystem getSystemIfExists() {
+        return singleton;
+    }
+
     private TerminalUiWidget widget;
     private int xPos, yPos;
     private MapService map;
 
 
-    public TerminalRenderingSystem(EcsWorld world, TerminalUiWidget widget, MapService map, int x, int y) {
+    private TerminalRenderingSystem(EcsWorld world, TerminalUiWidget widget, MapService map, int x, int y) {
         super(world);
         this.widget = widget;
         xPos = x;

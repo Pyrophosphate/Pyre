@@ -7,10 +7,23 @@ import com.brandonoium.pyre.ui.TerminalUiWidget;
 
 public class FinalTerminalRenderingSystem extends EcsSystem {
 
+    static FinalTerminalRenderingSystem singleton;
+
+    public static FinalTerminalRenderingSystem getSystem(EcsWorld world, BitHorseTerminal term, TerminalUiWidget rootWidget) {
+        if(singleton == null) {
+            singleton = new FinalTerminalRenderingSystem(world, term, rootWidget);
+        }
+        return singleton;
+    }
+
+    public static FinalTerminalRenderingSystem getSystemIfExists() {
+        return singleton;
+    }
+
     private BitHorseTerminal term;
     private TerminalUiWidget rootWidget;
 
-    public FinalTerminalRenderingSystem(EcsWorld world, BitHorseTerminal term, TerminalUiWidget rootWidget) {
+    private FinalTerminalRenderingSystem(EcsWorld world, BitHorseTerminal term, TerminalUiWidget rootWidget) {
         super(world);
         this.term = term;
         this.rootWidget = rootWidget;

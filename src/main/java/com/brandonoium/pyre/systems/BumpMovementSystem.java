@@ -1,6 +1,7 @@
 package com.brandonoium.pyre.systems;
 
 import com.brandonoium.pyre.components.BumpMovementComponent;
+import com.brandonoium.pyre.components.JustMovedComponent;
 import com.brandonoium.pyre.components.LocationComponent;
 import com.brandonoium.pyre.ecs.EcsWorld;
 import com.brandonoium.pyre.ecs.IComponent;
@@ -13,9 +14,20 @@ import java.util.Map.Entry;
 
 public class BumpMovementSystem extends EcsSystem {
 
-    //private EcsWorld world;
+    static BumpMovementSystem singleton;
 
-    public BumpMovementSystem(EcsWorld world) {
+    public static BumpMovementSystem getSystem(EcsWorld world) {
+        if(singleton == null) {
+            singleton = new BumpMovementSystem(world);
+        }
+        return singleton;
+    }
+
+    public static BumpMovementSystem getSystemIfExists() {
+        return singleton;
+    }
+
+    private BumpMovementSystem(EcsWorld world) {
         super(world);
     }
 
@@ -36,6 +48,7 @@ public class BumpMovementSystem extends EcsSystem {
                 int newX = l.getLoc().getX() + bump.getxBump();
                 int newY = l.getLoc().getY() + bump.getyBump();
                 world.updateLocation(l, new Location(newX, newY), b.getKey());
+                world.addComponent(b.getKey(), new JustMovedComponent());
             }
 
             idsToRemove.add(b.getKey());

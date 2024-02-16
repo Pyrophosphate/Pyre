@@ -21,13 +21,27 @@ import java.util.Map;
  */
 public class PlayerInputSystem extends EcsSystem {
 
-    //private EcsWorld world;
+    static PlayerInputSystem singleton;
+
+    public static PlayerInputSystem getSystem(EcsWorld world, long playerEntityId, PlayerTurnState playerTurnState, MapService map) {
+        if(singleton == null) {
+            singleton = new PlayerInputSystem(world, playerEntityId, playerTurnState, map);
+        }
+        return singleton;
+    }
+
+    public static PlayerInputSystem getSystemIfExists() {
+        return singleton;
+    }
+
+
+
     private long playerEntityId;
     private PlayerTurnState playerTurnState;
     private MapService map;
 
 
-    public PlayerInputSystem(EcsWorld world, long playerEntityId, PlayerTurnState playerTurnState, MapService map) {
+    private PlayerInputSystem(EcsWorld world, long playerEntityId, PlayerTurnState playerTurnState, MapService map) {
         super(world);
         this.playerEntityId = playerEntityId;
         this.playerTurnState = playerTurnState;

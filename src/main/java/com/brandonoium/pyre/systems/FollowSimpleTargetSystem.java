@@ -12,10 +12,21 @@ import java.util.Map.Entry;
 
 public class FollowSimpleTargetSystem extends EcsSystem {
 
-    //private EcsWorld world;
+    static FollowSimpleTargetSystem singleton;
+
+    public static FollowSimpleTargetSystem getSystem(EcsWorld world) {
+        if(singleton == null) {
+            singleton = new FollowSimpleTargetSystem(world);
+        }
+        return singleton;
+    }
+
+    public static FollowSimpleTargetSystem getSystemIfExists() {
+        return singleton;
+    }
 
 
-    public FollowSimpleTargetSystem(EcsWorld world) {
+    private FollowSimpleTargetSystem(EcsWorld world) {
         super(world);
     }
 

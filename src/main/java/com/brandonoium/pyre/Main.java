@@ -2,10 +2,7 @@ package com.brandonoium.pyre;
 
 import com.brandonoium.bithorse.BitHorseTerminal;
 import com.brandonoium.bithorse.InvalidCharSetException;
-import com.brandonoium.pyre.components.AIControlComponent;
-import com.brandonoium.pyre.components.LocationComponent;
-import com.brandonoium.pyre.components.SimpleMovementTargetComponent;
-import com.brandonoium.pyre.components.TerminalRenderableComponent;
+import com.brandonoium.pyre.components.*;
 import com.brandonoium.pyre.ecs.EcsWorld;
 import com.brandonoium.pyre.entitybuilders.PlayerBuilder;
 import com.brandonoium.pyre.gamestates.EnemyTurnState;
@@ -46,9 +43,9 @@ public class Main {
         playerTurnState.setEnemyTurnState(enemyTurnState);
         enemyTurnState.setPlayerTurnState(playerTurnState);
 
-        StateChangeSystem stateChangeSystem = new StateChangeSystem(world, enemyTurnState);
-        AiControlSystem aiControlSystem = new AiControlSystem(world);
-        FollowSimpleTargetSystem followSystem = new FollowSimpleTargetSystem(world);
+        StateChangeSystem stateChangeSystem = StateChangeSystem.getSystem(world, enemyTurnState);
+        AiControlSystem aiControlSystem = AiControlSystem.getSystem(world);
+        FollowSimpleTargetSystem followSystem = FollowSimpleTargetSystem.getSystem(world);
 
 
 
@@ -58,7 +55,7 @@ public class Main {
         MapService map = new MapService();
         map.generateMap(new EmptyRoomMapGenerator(40, 30));
 
-        PlayerInputSystem playerInput = new PlayerInputSystem(world, playerEntityId, playerTurnState, map);
+        PlayerInputSystem playerInput = PlayerInputSystem.getSystem(world, playerEntityId, playerTurnState, map);
         InputService input = new InputService(playerInput);
         input.setKeyInputMap(DefaultKeyInputMap.getDefaultKeyInputMap());
         term.addKeyListener(input);
@@ -68,39 +65,30 @@ public class Main {
         root.addChild(renderingWidget);
         MessageLogWidget messageWidget = new MessageLogWidget(40, 4, 0, 0, 10);
         root.addChild(messageWidget);
-        TerminalRenderingSystem tRend = new TerminalRenderingSystem(world, renderingWidget, map, 0, 0);
-        MessageLogSystem messageSystem = new MessageLogSystem(world, messageWidget);
+        TerminalRenderingSystem tRend = TerminalRenderingSystem.getSystem(world, renderingWidget, map, 0, 0);
+        MessageLogSystem messageSystem = MessageLogSystem.getSystem(world, messageWidget);
 
         long enemy = world.newEntityId();
         world.addComponent(enemy, new LocationComponent(5, 5));
         world.addComponent(enemy, new TerminalRenderableComponent('W'));
-        //world.addComponent(enemy, new AIControlComponent());
         world.addComponent(enemy, new SimpleMovementTargetComponent(new Location(35, 15)));
+        world.addComponent(enemy, new DescriptionComponent("A wolf. Not a playful puppy."));
 
-        BumpMovementSystem bump = new BumpMovementSystem(world);
-        FramePacingSystem framePacing = new FramePacingSystem(world, 16);
+        BumpMovementSystem bump = BumpMovementSystem.getSystem(world);
+        FramePacingSystem framePacing = FramePacingSystem.getSystem(world, 16);
 
-        FinalTerminalRenderingSystem finalRend = new FinalTerminalRenderingSystem(world, term, root);
+        FinalTerminalRenderingSystem finalRend = FinalTerminalRenderingSystem.getSystem(world, term, root);
 
-        DebugCollisionSystem debugCollision = new DebugCollisionSystem(world);
+        DebugCollisionSystem debugCollision = DebugCollisionSystem.getSystem(world);
+        RemoteExamineSystem remoteExamineSystem = RemoteExamineSystem.getSystem(world);
+        ExaminationSystem examinationSystem = ExaminationSystem.getSystem(world);
+        RemoveJustMovedComponentSystem justMoved = RemoveJustMovedComponentSystem.getSystem(world);
 
-        playerTurnState.addSystem(playerInput);
-        playerTurnState.addSystem(bump);
-        playerTurnState.addSystem(framePacing);
-        playerTurnState.addSystem(tRend);
-        playerTurnState.addSystem(messageSystem);
-        playerTurnState.addSystem(finalRend);
-
-        enemyTurnState.addSystem(aiControlSystem);
-        enemyTurnState.addSystem(followSystem);
-        enemyTurnState.addSystem(bump);
-        enemyTurnState.addSystem(debugCollision);
-        enemyTurnState.addSystem(stateChangeSystem);
+        playerTurnState.initSystems();
+        enemyTurnState.initSystems();
 
         while(true) {
             stateMgr.runSystems();
         }
-
-        //tRend.run();
     }
 }
