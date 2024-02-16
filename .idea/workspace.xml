@@ -4,28 +4,19 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6953ccaf-93d2-4296-baea-04fc4ae22045" name="Changes" comment="Minor formatting changes">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/brandonoium/pyre/components/JustMovedComponent.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/brandonoium/pyre/systems/RemoteExamineSystem.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/brandonoium/pyre/systems/RemoveJustMovedComponentSystem.java" afterDir="false" />
+    <list default="true" id="6953ccaf-93d2-4296-baea-04fc4ae22045" name="Changes" comment="Refactored ECS systems to be singletons.&#10;Made Examine show the description of an entity, if available.">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/brandonoium/pyre/components/CanExamineComponent.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/brandonoium/pyre/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/brandonoium/pyre/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/brandonoium/pyre/ecs/EcsWorld.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/brandonoium/pyre/ecs/EcsWorld.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/brandonoium/pyre/entitybuilders/PlayerBuilder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/brandonoium/pyre/entitybuilders/PlayerBuilder.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/brandonoium/pyre/entitybuilders/RemoteExamineBuilder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/brandonoium/pyre/entitybuilders/RemoteExamineBuilder.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/brandonoium/pyre/gamestates/EnemyTurnState.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/brandonoium/pyre/gamestates/EnemyTurnState.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/brandonoium/pyre/gamestates/GameState.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/brandonoium/pyre/gamestates/GameState.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/brandonoium/pyre/gamestates/PlayerTurnState.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/brandonoium/pyre/gamestates/PlayerTurnState.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/brandonoium/pyre/systems/AiControlSystem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/brandonoium/pyre/systems/AiControlSystem.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/brandonoium/pyre/systems/BumpMovementSystem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/brandonoium/pyre/systems/BumpMovementSystem.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/brandonoium/pyre/systems/DebugCollisionSystem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/brandonoium/pyre/systems/DebugCollisionSystem.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/brandonoium/pyre/systems/ExaminationSystem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/brandonoium/pyre/systems/ExaminationSystem.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/brandonoium/pyre/systems/FinalTerminalRenderingSystem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/brandonoium/pyre/systems/FinalTerminalRenderingSystem.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/brandonoium/pyre/systems/FollowSimpleTargetSystem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/brandonoium/pyre/systems/FollowSimpleTargetSystem.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/brandonoium/pyre/systems/FramePacingSystem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/brandonoium/pyre/systems/FramePacingSystem.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/brandonoium/pyre/systems/MessageLogSystem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/brandonoium/pyre/systems/MessageLogSystem.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/brandonoium/pyre/systems/PlayerInputSystem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/brandonoium/pyre/systems/PlayerInputSystem.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/brandonoium/pyre/systems/StateChangeSystem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/brandonoium/pyre/systems/StateChangeSystem.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/brandonoium/pyre/systems/TerminalRenderingSystem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/brandonoium/pyre/systems/TerminalRenderingSystem.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/brandonoium/pyre/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/brandonoium/pyre/Main.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/brandonoium/pyre/util/input/DefaultKeyInputMap.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/brandonoium/pyre/util/input/DefaultKeyInputMap.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/brandonoium/pyre/util/input/InputAction.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/brandonoium/pyre/util/input/InputAction.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/brandonoium/pyre/ecs/EcsWorld.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/brandonoium/pyre/ecs/EcsWorld.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/brandonoium/pyre/gamestates/GameState.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/brandonoium/pyre/gamestates/GameState.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/brandonoium/pyre/systems/TerminalRenderingSystem.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/brandonoium/pyre/systems/TerminalRenderingSystem.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/brandonoium/pyre/util/input/InputAction.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/brandonoium/pyre/util/input/InputAction.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -136,7 +127,7 @@
       <workItem from="1707746079136" duration="20496000" />
       <workItem from="1707844291240" duration="12265000" />
       <workItem from="1708005535062" duration="1267000" />
-      <workItem from="1708093605486" duration="14199000" />
+      <workItem from="1708093605486" duration="16012000" />
     </task>
     <task id="LOCAL-00001" summary="Initial Commit">
       <option name="closed" value="true" />
@@ -218,7 +209,15 @@
       <option name="project" value="LOCAL" />
       <updated>1708032657978</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="Refactored ECS systems to be singletons.&#10;Made Examine show the description of an entity, if available.">
+      <option name="closed" value="true" />
+      <created>1708112055845</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1708112055845</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -258,6 +257,8 @@
     <MESSAGE value="Additional minor cleanup" />
     <MESSAGE value="Added a simple debug collision system to test LocationIndex" />
     <MESSAGE value="Minor formatting changes" />
-    <option name="LAST_COMMIT_MESSAGE" value="Minor formatting changes" />
+    <MESSAGE value="Refactored ECS systems to be singletons." />
+    <MESSAGE value="Refactored ECS systems to be singletons.&#10;Made Examine show the description of an entity, if available." />
+    <option name="LAST_COMMIT_MESSAGE" value="Refactored ECS systems to be singletons.&#10;Made Examine show the description of an entity, if available." />
   </component>
 </project>

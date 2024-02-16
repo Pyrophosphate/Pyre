@@ -86,8 +86,12 @@ public class PlayerInputSystem extends EcsSystem {
                 moveAction(targetEntity, 1, 0);
                 break;
             }
-            case EXAMINE -> {
+            case REMOTE_EXAMINE -> {
                 toggleExamineMode(targetEntity);
+                break;
+            }
+            case EXAMINE -> {
+                examineHere(targetEntity);
                 break;
             }
             case WAIT -> {
@@ -132,6 +136,12 @@ public class PlayerInputSystem extends EcsSystem {
         if(targetId == playerEntityId) {
             endPlayerTurn();
             world.addComponent(targetId, new MessageLogOutputComponent("Waiting..."));
+        }
+    }
+
+    private void examineHere(long targetId) {
+        if(world.getComponent(targetId, CanExamineComponent.class) != null) {
+            world.addComponent(targetId, new ExamineComponent());
         }
     }
 

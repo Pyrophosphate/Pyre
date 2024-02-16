@@ -113,7 +113,11 @@ public class EcsWorld {
     }
 
     public IComponent getComponent(long entityId, Class type) {
-        return componentsById.get(entityId).get(type);
+        Map<Class, IComponent> map = componentsById.get(entityId);
+        if(map != null)
+            return map.get(type);
+        else
+            return null;
     }
 
 

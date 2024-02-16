@@ -11,5 +11,6 @@ public enum InputAction {
     MOVE_UP,
     MOVE_DOWN,
 
-    EXAMINE
+    EXAMINE,
+    REMOTE_EXAMINE
 }
