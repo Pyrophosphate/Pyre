@@ -9,14 +9,17 @@ import com.brandonoium.pyre.gamestates.EnemyTurnState;
 import com.brandonoium.pyre.gamestates.PlayerTurnState;
 import com.brandonoium.pyre.gamestates.StateManager;
 import com.brandonoium.pyre.systems.*;
-import com.brandonoium.pyre.ui.BasicWidget;
-import com.brandonoium.pyre.ui.MessageLogWidget;
+import com.brandonoium.pyre.ui.widgets.BasicWidget;
+import com.brandonoium.pyre.ui.widgets.containers.ContainerWidget;
+import com.brandonoium.pyre.ui.widgets.MessageLogWidget;
+import com.brandonoium.pyre.ui.widgets.containers.VerticalContainer;
 import com.brandonoium.pyre.util.Location;
 import com.brandonoium.pyre.util.input.DefaultKeyInputMap;
 import com.brandonoium.pyre.util.input.InputService;
-import com.brandonoium.pyre.util.input.KeyInputMap;
 import com.brandonoium.pyre.util.map.MapService;
 import com.brandonoium.pyre.util.map.generator.EmptyRoomMapGenerator;
+import com.brandonoium.pyre.util.map.generator.MapGenException;
+import com.brandonoium.pyre.util.map.generator.RoomGridMapGenerator;
 
 import java.awt.*;
 import java.io.IOException;
@@ -53,18 +56,23 @@ public class Main {
 
 
         MapService map = new MapService();
-        map.generateMap(new EmptyRoomMapGenerator(40, 30));
+        //map.generateMap(new EmptyRoomMapGenerator(40, 30));
+        try {
+            map.generateMap(new RoomGridMapGenerator(80, 60));
+        } catch (MapGenException e) {
+            throw new RuntimeException(e);
+        }
 
         PlayerInputSystem playerInput = PlayerInputSystem.getSystem(world, playerEntityId, playerTurnState, map);
         InputService input = new InputService(playerInput);
         input.setKeyInputMap(DefaultKeyInputMap.getDefaultKeyInputMap());
         term.addKeyListener(input);
 
-        BasicWidget root = new BasicWidget(40, 30, 0, 0);
-        BasicWidget renderingWidget = new BasicWidget(40, 26, 0, 4);
-        root.addChild(renderingWidget);
-        MessageLogWidget messageWidget = new MessageLogWidget(40, 4, 0, 0, 10);
+        ContainerWidget root = new VerticalContainer(40, 30);
+        BasicWidget renderingWidget = new BasicWidget(40, 26);
+        MessageLogWidget messageWidget = new MessageLogWidget(5, 4, 0, 0, 10);
         root.addChild(messageWidget);
+        root.addChild(renderingWidget);
         TerminalRenderingSystem tRend = TerminalRenderingSystem.getSystem(world, renderingWidget, map, 0, 0);
         MessageLogSystem messageSystem = MessageLogSystem.getSystem(world, messageWidget);
 

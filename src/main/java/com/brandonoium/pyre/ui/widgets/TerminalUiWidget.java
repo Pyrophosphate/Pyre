@@ -1,4 +1,4 @@
-package com.brandonoium.pyre.ui;
+package com.brandonoium.pyre.ui.widgets;
 
 import com.brandonoium.bithorse.BitHorseTerminalBuffer;
 
@@ -9,8 +9,15 @@ public abstract class TerminalUiWidget {
     private int width, height;
     private int x, y;
 
-    private ArrayList<TerminalUiWidget> children;
 
+
+    public TerminalUiWidget(int w, int h) {
+        width = w;
+        height = h;
+        this.x = 0;
+        this.y = 0;
+        buffer = new BitHorseTerminalBuffer(w, h);
+    }
 
     public TerminalUiWidget(int w, int h, int x, int y) {
         width = w;
@@ -18,8 +25,6 @@ public abstract class TerminalUiWidget {
         this.x = x;
         this.y = y;
         buffer = new BitHorseTerminalBuffer(w, h);
-
-        children = new ArrayList<>();
     }
 
     public BitHorseTerminalBuffer getBuffer() {
@@ -45,6 +50,7 @@ public abstract class TerminalUiWidget {
     public void setSize(int w, int h) {
         width = w;
         height = h;
+        buffer = new BitHorseTerminalBuffer(w, h);
     }
 
     public void setPosition(int x, int y) {
@@ -52,16 +58,7 @@ public abstract class TerminalUiWidget {
         this.y = y;
     }
 
-    public BitHorseTerminalBuffer draw() {
-        for(TerminalUiWidget child : children) {
-            buffer.copyFromBuffer(child.draw(), child.getX(), child.getY());
-        }
-        return buffer;
-    }
-
-    public void addChild(TerminalUiWidget child) {
-        children.add(child);
-    }
+    public abstract BitHorseTerminalBuffer draw();
 
 
     public int getMinWidth() {

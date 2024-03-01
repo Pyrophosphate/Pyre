@@ -14,7 +14,7 @@ public class EmptyRoomMapGenerator implements MapGenerator {
 
 
     @Override
-    public GameMap createMap() {
+    public GameMap createMap() throws MapGenException {
         GameMap map = new GameMap(width, height);
 
         // Do top row

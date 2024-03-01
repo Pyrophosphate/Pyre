@@ -7,7 +7,7 @@ import com.brandonoium.pyre.components.TerminalRenderableComponent;
 import com.brandonoium.pyre.ecs.EcsWorld;
 import com.brandonoium.pyre.ecs.IComponent;
 import com.brandonoium.pyre.ecs.EcsSystem;
-import com.brandonoium.pyre.ui.TerminalUiWidget;
+import com.brandonoium.pyre.ui.widgets.TerminalUiWidget;
 import com.brandonoium.pyre.util.map.MapService;
 
 import java.util.Map;

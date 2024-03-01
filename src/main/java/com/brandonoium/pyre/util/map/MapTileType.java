@@ -6,7 +6,8 @@ public enum MapTileType {
 
     WALL("Wall", CharSetMap.BLOCK_FULL, true, false, false),
     FLOOR("Floor", '.', false, true, true),
-    WINDOW("Window", CharSetMap.BLOCK_LIGHT_TRANSPARENT, false, false, false);
+    WINDOW("Window", CharSetMap.BLOCK_LIGHT_TRANSPARENT, false, false, false),
+    VOID("Void", ' ', false, false, false);
 
     private final String friendlyName;
     private final int glyph;

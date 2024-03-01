@@ -4,11 +4,39 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6953ccaf-93d2-4296-baea-04fc4ae22045" name="Changes" comment="Separated local examine from remote examine.&#10;ie, examine the location the player is standing or examine somewhere else">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/brandonoium/pyre/components/IsAttackableComponent.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/brandonoium/pyre/components/PerformingAttackComponent.java" afterDir="false" />
+    <list default="true" id="6953ccaf-93d2-4296-baea-04fc4ae22045" name="Changes" comment="Implemented initial bits of the combat system">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/brandonoium/pyre/ui/widgets/BasicWidget.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/brandonoium/pyre/ui/widgets/containers/ContainerWidget.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/brandonoium/pyre/ui/widgets/containers/HorizontalContainer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/brandonoium/pyre/ui/widgets/containers/VerticalContainer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/brandonoium/pyre/util/map/generator/MapGenException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/brandonoium/pyre/util/map/generator/RoomGridMapGenerator.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/brandonoium/pyre/util/map/generator/util/MapRoom.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/brandonoium/pyre/util/map/generator/util/RoomConnection.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/brandonoium/pyre/entitybuilders/PlayerBuilder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/brandonoium/pyre/entitybuilders/PlayerBuilder.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/brandonoium/pyre/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/brandonoium/pyre/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/brandonoium/pyre/systems/FinalTerminalRenderingSystem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/brandonoium/pyre/systems/FinalTerminalRenderingSystem.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/brandonoium/pyre/systems/MessageLogSystem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/brandonoium/pyre/systems/MessageLogSystem.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/brandonoium/pyre/systems/TerminalRenderingSystem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/brandonoium/pyre/systems/TerminalRenderingSystem.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/brandonoium/pyre/ui/BasicWidget.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/brandonoium/pyre/ui/MessageLogWidget.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/brandonoium/pyre/ui/widgets/MessageLogWidget.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/brandonoium/pyre/ui/TerminalUiWidget.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/brandonoium/pyre/ui/widgets/TerminalUiWidget.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/brandonoium/pyre/ui/VScrollBarWidget.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/brandonoium/pyre/ui/widgets/VScrollBarWidget.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/brandonoium/pyre/util/map/GameMap.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/brandonoium/pyre/util/map/GameMap.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/brandonoium/pyre/util/map/MapService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/brandonoium/pyre/util/map/MapService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/brandonoium/pyre/util/map/MapTileType.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/brandonoium/pyre/util/map/MapTileType.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/brandonoium/pyre/util/map/generator/EmptyRoomMapGenerator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/brandonoium/pyre/util/map/generator/EmptyRoomMapGenerator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/brandonoium/pyre/util/map/generator/MapGenerator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/brandonoium/pyre/util/map/generator/MapGenerator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/brandonoium/pyre/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/brandonoium/pyre/Main.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/brandonoium/pyre/systems/TerminalRenderingSystem.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/brandonoium/pyre/systems/TerminalRenderingSystem.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/brandonoium/pyre/ui/BasicWidget.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/brandonoium/pyre/ui/TerminalUiWidget.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/brandonoium/pyre/ui/VScrollBarWidget.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/brandonoium/pyre/util/map/GameMap.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/brandonoium/pyre/util/map/GameMap.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/brandonoium/pyre/util/map/MapService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/brandonoium/pyre/util/map/MapService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/brandonoium/pyre/util/map/MapTileType.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/brandonoium/pyre/util/map/MapTileType.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/brandonoium/pyre/util/map/generator/EmptyRoomMapGenerator.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/brandonoium/pyre/util/map/generator/EmptyRoomMapGenerator.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/brandonoium/pyre/util/map/generator/MapGenerator.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/brandonoium/pyre/util/map/generator/MapGenerator.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -61,6 +89,7 @@
 }</component>
   <component name="RecentsManager">
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="com.brandonoium.pyre.ui.widgets" />
       <recent name="com.brandonoium.pyre.util.map" />
       <recent name="com.brandonoium.pyre" />
     </key>
@@ -119,7 +148,10 @@
       <workItem from="1707746079136" duration="20496000" />
       <workItem from="1707844291240" duration="12265000" />
       <workItem from="1708005535062" duration="1267000" />
-      <workItem from="1708093605486" duration="20302000" />
+      <workItem from="1708093605486" duration="20435000" />
+      <workItem from="1708353236933" duration="5056000" />
+      <workItem from="1708449236381" duration="6290000" />
+      <workItem from="1709133677739" duration="35321000" />
     </task>
     <task id="LOCAL-00001" summary="Initial Commit">
       <option name="closed" value="true" />
@@ -217,7 +249,15 @@
       <option name="project" value="LOCAL" />
       <updated>1708113752897</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="Implemented initial bits of the combat system">
+      <option name="closed" value="true" />
+      <created>1708119205255</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1708119205255</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -260,6 +300,7 @@
     <MESSAGE value="Refactored ECS systems to be singletons." />
     <MESSAGE value="Refactored ECS systems to be singletons.&#10;Made Examine show the description of an entity, if available." />
     <MESSAGE value="Separated local examine from remote examine.&#10;ie, examine the location the player is standing or examine somewhere else" />
-    <option name="LAST_COMMIT_MESSAGE" value="Separated local examine from remote examine.&#10;ie, examine the location the player is standing or examine somewhere else" />
+    <MESSAGE value="Implemented initial bits of the combat system" />
+    <option name="LAST_COMMIT_MESSAGE" value="Implemented initial bits of the combat system" />
   </component>
 </project>

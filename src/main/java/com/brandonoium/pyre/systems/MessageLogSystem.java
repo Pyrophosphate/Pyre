@@ -4,7 +4,7 @@ import com.brandonoium.pyre.components.MessageLogOutputComponent;
 import com.brandonoium.pyre.ecs.EcsWorld;
 import com.brandonoium.pyre.ecs.IComponent;
 import com.brandonoium.pyre.ecs.EcsSystem;
-import com.brandonoium.pyre.ui.MessageLogWidget;
+import com.brandonoium.pyre.ui.widgets.MessageLogWidget;
 
 import java.util.ArrayList;
 import java.util.Map;

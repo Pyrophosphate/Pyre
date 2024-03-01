@@ -3,7 +3,7 @@ package com.brandonoium.pyre.systems;
 import com.brandonoium.bithorse.BitHorseTerminal;
 import com.brandonoium.pyre.ecs.EcsWorld;
 import com.brandonoium.pyre.ecs.EcsSystem;
-import com.brandonoium.pyre.ui.TerminalUiWidget;
+import com.brandonoium.pyre.ui.widgets.TerminalUiWidget;
 
 public class FinalTerminalRenderingSystem extends EcsSystem {
 

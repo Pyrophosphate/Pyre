@@ -1,5 +1,6 @@
 package com.brandonoium.pyre.util.map;
 
+import com.brandonoium.pyre.util.map.generator.MapGenException;
 import com.brandonoium.pyre.util.map.generator.MapGenerator;
 
 public class MapService {
@@ -48,7 +49,7 @@ public class MapService {
     }
 
 
-    public void generateMap(MapGenerator generator) {
+    public void generateMap(MapGenerator generator) throws MapGenException {
         map = generator.createMap();
     }
 }

@@ -1,4 +1,4 @@
-package com.brandonoium.pyre.ui;
+package com.brandonoium.pyre.ui.widgets;
 
 import com.brandonoium.bithorse.BitHorseTerminalBuffer;
 import com.brandonoium.bithorse.CharSetMap;
