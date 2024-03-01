@@ -9,6 +9,7 @@ import java.awt.event.KeyEvent;
 public class InputService extends KeyAdapter {
 
     private KeyInputMap map;
+    private KeyInputMap shiftMap;
     private PlayerInputSystem pInput;
 
     public InputService(PlayerInputSystem playerInput) {
@@ -19,9 +20,19 @@ public class InputService extends KeyAdapter {
         map = newMap;
     }
 
+    public void setShiftKeyInputMap(KeyInputMap newMap) {
+        shiftMap = newMap;
+    }
+
     @Override
     public void keyPressed(KeyEvent e) {
-        InputAction action = map.mapKeycode(e.getKeyCode());
+        InputAction action;
+        if(e.isShiftDown()) {
+            action = shiftMap.mapKeycode(e.getKeyCode());
+        } else {
+
+            action = map.mapKeycode(e.getKeyCode());
+        }
         KeyInput key = new KeyInput(action, e.getKeyChar());
         //System.out.println(key);
         pInput.doAction(key);

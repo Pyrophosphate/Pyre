@@ -10,6 +10,7 @@ import com.brandonoium.pyre.util.Location;
 import com.brandonoium.pyre.util.input.KeyInput;
 import com.brandonoium.pyre.util.map.MapService;
 
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -68,7 +69,7 @@ public class PlayerInputSystem extends EcsSystem {
             }
         }
 
-        System.out.println(input);
+        //System.out.println(input);
         switch (input.getAction()) {
             case MOVE_DOWN -> {
                 moveAction(targetEntity, 0, 1);
@@ -107,11 +108,13 @@ public class PlayerInputSystem extends EcsSystem {
         if(moveable != null) {
             Location entityLocation = ((LocationComponent) world.getComponent(targetId, LocationComponent.class)).getLoc();
 
-            if (canMove(moveable, entityLocation.getX() + dx, entityLocation.getY() + dy)) {
-                world.addComponent(targetId, new BumpMovementComponent(dx, dy));
+            if (!tryAttack(entityLocation.getX() + dx, entityLocation.getY() + dy)) {
+                if (canMove(moveable, entityLocation.getX() + dx, entityLocation.getY() + dy)) {
+                    world.addComponent(targetId, new BumpMovementComponent(dx, dy));
 
-                if(targetId == playerEntityId)
-                    endPlayerTurn();
+                    if(targetId == playerEntityId)
+                        endPlayerTurn();
+                }
             }
         }
     }
@@ -127,6 +130,22 @@ public class PlayerInputSystem extends EcsSystem {
             } else {
                 return false;
             }
+        } else {
+            return false;
+        }
+    }
+
+    private boolean tryAttack(int targetX, int targetY) {
+        if (map.isValidLocation(targetX, targetY)) {
+            List<Long> collisions = world.getLocationIndex().getEntitiesAt(targetX, targetY);
+            for(long targetEntity : collisions) {
+                if(world.getComponent(targetEntity, IsAttackableComponent.class) != null) {
+                    world.addComponent(playerEntityId, new PerformingAttackComponent(playerEntityId, targetEntity));
+                    endPlayerTurn();
+                    return true;
+                }
+            }
+            return false;
         } else {
             return false;
         }

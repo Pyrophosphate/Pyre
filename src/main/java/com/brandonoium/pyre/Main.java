@@ -56,7 +56,6 @@ public class Main {
 
 
         MapService map = new MapService();
-        //map.generateMap(new EmptyRoomMapGenerator(40, 30));
         try {
             map.generateMap(new RoomGridMapGenerator(80, 60));
         } catch (MapGenException e) {
@@ -66,6 +65,7 @@ public class Main {
         PlayerInputSystem playerInput = PlayerInputSystem.getSystem(world, playerEntityId, playerTurnState, map);
         InputService input = new InputService(playerInput);
         input.setKeyInputMap(DefaultKeyInputMap.getDefaultKeyInputMap());
+        input.setShiftKeyInputMap(DefaultKeyInputMap.getDefaultShiftKeyInputMap());
         term.addKeyListener(input);
 
         ContainerWidget root = new VerticalContainer(40, 30);
@@ -81,6 +81,7 @@ public class Main {
         world.addComponent(enemy, new TerminalRenderableComponent('W'));
         world.addComponent(enemy, new SimpleMovementTargetComponent(new Location(35, 15)));
         world.addComponent(enemy, new DescriptionComponent("A wolf. Not a playful puppy."));
+        world.addComponent(enemy, new IsAttackableComponent());
 
         BumpMovementSystem bump = BumpMovementSystem.getSystem(world);
         FramePacingSystem framePacing = FramePacingSystem.getSystem(world, 16);
@@ -91,6 +92,7 @@ public class Main {
         RemoteExamineSystem remoteExamineSystem = RemoteExamineSystem.getSystem(world);
         ExaminationSystem examinationSystem = ExaminationSystem.getSystem(world);
         RemoveJustMovedComponentSystem justMoved = RemoveJustMovedComponentSystem.getSystem(world);
+        PerformingAttackSystem attackSystem = PerformingAttackSystem.getSystem(world);
 
         playerTurnState.initSystems();
         enemyTurnState.initSystems();

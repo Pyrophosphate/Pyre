@@ -27,6 +27,7 @@ public class PlayerTurnState implements GameState {
     @Override
     public void initSystems() {
         this.addSystem(PlayerInputSystem.getSystemIfExists());
+        this.addSystem(PerformingAttackSystem.getSystemIfExists());
         this.addSystem(RemoteExamineSystem.getSystemIfExists());
         this.addSystem(RemoveJustMovedComponentSystem.getSystemIfExists());
         this.addSystem(BumpMovementSystem.getSystemIfExists());

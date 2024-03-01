@@ -24,6 +24,7 @@ public class EnemyTurnState implements GameState {
     @Override
     public void initSystems() {
         this.addSystem(AiControlSystem.getSystemIfExists());
+        this.addSystem(PerformingAttackSystem.getSystemIfExists());
         this.addSystem(FollowSimpleTargetSystem.getSystemIfExists());
         this.addSystem(RemoveJustMovedComponentSystem.getSystemIfExists());
         this.addSystem(BumpMovementSystem.getSystemIfExists());

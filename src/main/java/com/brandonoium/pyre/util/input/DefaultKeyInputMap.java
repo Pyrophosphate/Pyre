@@ -15,7 +15,16 @@ public class DefaultKeyInputMap {
         map.setMapping(KeyEvent.VK_NUMPAD5, InputAction.WAIT);
 
         map.setMapping(KeyEvent.VK_X, InputAction.EXAMINE);
-        map.setMapping(KeyEvent.VK_Z, InputAction.REMOTE_EXAMINE);
+
+        //map.setMapping(KeyEvent.);
+
+        return map;
+    }
+
+    public static KeyInputMap getDefaultShiftKeyInputMap() {
+        KeyInputMap map = new KeyInputMap();
+
+        map.setMapping(KeyEvent.VK_X, InputAction.REMOTE_EXAMINE);
 
         //map.setMapping(KeyEvent.);
 
