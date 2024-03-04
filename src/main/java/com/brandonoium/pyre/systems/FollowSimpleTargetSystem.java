@@ -65,7 +65,7 @@ public class FollowSimpleTargetSystem extends EcsSystem {
 
         for(long id : idsToRemove) {
             world.removeComponent(id, SimpleMovementTargetComponent.class);
-            world.addComponent(id, new MessageLogOutputComponent("Finished moving."));
+            MessageLogOutputComponent.addMessage(world, id, "Finished moving.");
         }
     }
 }

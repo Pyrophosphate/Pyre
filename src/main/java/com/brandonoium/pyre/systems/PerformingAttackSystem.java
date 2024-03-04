@@ -38,7 +38,7 @@ public class PerformingAttackSystem  extends EcsSystem {
 
 
             idsToRemove.add(a.getKey());
-            world.addComponent(ai.getAttackerId(), new MessageLogOutputComponent("Performed Attack."));
+            MessageLogOutputComponent.addMessage(world, ai.getAttackerId(), "Performed Attack.");
         }
 
         for(long id : idsToRemove) {

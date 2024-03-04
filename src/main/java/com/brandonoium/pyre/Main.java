@@ -81,6 +81,7 @@ public class Main {
         world.addComponent(enemy, new TerminalRenderableComponent('W'));
         world.addComponent(enemy, new SimpleMovementTargetComponent(new Location(35, 15)));
         world.addComponent(enemy, new DescriptionComponent("A wolf. Not a playful puppy."));
+        world.addComponent(enemy, new HealthComponent(5));
         world.addComponent(enemy, new IsAttackableComponent());
 
         BumpMovementSystem bump = BumpMovementSystem.getSystem(world);

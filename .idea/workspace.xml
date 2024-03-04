@@ -4,17 +4,18 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6953ccaf-93d2-4296-baea-04fc4ae22045" name="Changes" comment="Reorganized UI widget and container functionality and implemented a RoomGridMapGenerator">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/brandonoium/pyre/systems/PerformingAttackSystem.java" afterDir="false" />
+    <list default="true" id="6953ccaf-93d2-4296-baea-04fc4ae22045" name="Changes" comment="Added PerformingAttackSystem and the basic skeleton for performing melee attacks">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/brandonoium/pyre/attacks/Attack.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/brandonoium/pyre/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/brandonoium/pyre/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/brandonoium/pyre/gamestates/EnemyTurnState.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/brandonoium/pyre/gamestates/EnemyTurnState.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/brandonoium/pyre/gamestates/PlayerTurnState.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/brandonoium/pyre/gamestates/PlayerTurnState.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/brandonoium/pyre/components/MessageLogOutputComponent.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/brandonoium/pyre/components/MessageLogOutputComponent.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/brandonoium/pyre/systems/DebugCollisionSystem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/brandonoium/pyre/systems/DebugCollisionSystem.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/brandonoium/pyre/systems/ExaminationSystem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/brandonoium/pyre/systems/ExaminationSystem.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/brandonoium/pyre/systems/FollowSimpleTargetSystem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/brandonoium/pyre/systems/FollowSimpleTargetSystem.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/brandonoium/pyre/systems/MessageLogSystem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/brandonoium/pyre/systems/MessageLogSystem.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/brandonoium/pyre/systems/PerformingAttackSystem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/brandonoium/pyre/systems/PerformingAttackSystem.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/brandonoium/pyre/systems/PlayerInputSystem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/brandonoium/pyre/systems/PlayerInputSystem.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/brandonoium/pyre/util/input/DefaultKeyInputMap.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/brandonoium/pyre/util/input/DefaultKeyInputMap.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/brandonoium/pyre/util/input/InputService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/brandonoium/pyre/util/input/InputService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/brandonoium/pyre/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/brandonoium/pyre/Main.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/brandonoium/pyre/util/input/InputService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/brandonoium/pyre/util/input/InputService.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -129,7 +130,8 @@
       <workItem from="1708093605486" duration="20435000" />
       <workItem from="1708353236933" duration="5056000" />
       <workItem from="1708449236381" duration="6290000" />
-      <workItem from="1709133677739" duration="40607000" />
+      <workItem from="1709133677739" duration="40728000" />
+      <workItem from="1709576219061" duration="7554000" />
     </task>
     <task id="LOCAL-00001" summary="Initial Commit">
       <option name="closed" value="true" />
@@ -243,7 +245,15 @@
       <option name="project" value="LOCAL" />
       <updated>1709320419209</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="Added PerformingAttackSystem and the basic skeleton for performing melee attacks">
+      <option name="closed" value="true" />
+      <created>1709326329706</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1709326329706</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -288,6 +298,7 @@
     <MESSAGE value="Separated local examine from remote examine.&#10;ie, examine the location the player is standing or examine somewhere else" />
     <MESSAGE value="Implemented initial bits of the combat system" />
     <MESSAGE value="Reorganized UI widget and container functionality and implemented a RoomGridMapGenerator" />
-    <option name="LAST_COMMIT_MESSAGE" value="Reorganized UI widget and container functionality and implemented a RoomGridMapGenerator" />
+    <MESSAGE value="Added PerformingAttackSystem and the basic skeleton for performing melee attacks" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added PerformingAttackSystem and the basic skeleton for performing melee attacks" />
   </component>
 </project>

@@ -46,7 +46,7 @@ public class ExaminationSystem extends EcsSystem {
                 if(entity != x.getKey()) {
                     DescriptionComponent desc = (DescriptionComponent) world.getComponent(entity, DescriptionComponent.class);
                     if(desc != null)
-                        world.addComponent(entity, new MessageLogOutputComponent(desc.getDesc()));
+                        MessageLogOutputComponent.addMessage(world, entity, desc.getDesc());
                 }
             }
 

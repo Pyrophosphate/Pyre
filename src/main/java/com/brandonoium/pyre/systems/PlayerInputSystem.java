@@ -154,7 +154,7 @@ public class PlayerInputSystem extends EcsSystem {
     private void waitAction(long targetId) {
         if(targetId == playerEntityId) {
             endPlayerTurn();
-            world.addComponent(targetId, new MessageLogOutputComponent("Waiting..."));
+            MessageLogOutputComponent.addMessage(world, targetId, "Waiting...");
         }
     }
 

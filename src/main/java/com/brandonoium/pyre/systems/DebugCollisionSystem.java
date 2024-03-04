@@ -41,7 +41,7 @@ public class DebugCollisionSystem extends EcsSystem {
 
             for(long entity : collisions) {
                 if(entity != l.getKey()) {
-                    world.addComponent(entity, new MessageLogOutputComponent("Collision found."));
+                    MessageLogOutputComponent.addMessage(world, entity, "Collision found.");
                 }
             }
         }

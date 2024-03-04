@@ -42,17 +42,14 @@ public class MessageLogSystem extends EcsSystem {
     @Override
     public void run() {
         Map<Long, IComponent> messages = world.getComponentsByType(MessageLogOutputComponent.class);
-        ArrayList<Long> idsToRemove = new ArrayList<>(messages.size());
 
         for(Entry<Long, IComponent> msg : messages.entrySet()) {
-            String message = ((MessageLogOutputComponent)msg.getValue()).getMessage();
-            widget.postMessage(message);
+            MessageLogOutputComponent msgComp = (MessageLogOutputComponent)msg.getValue();
+            for(String message : msgComp.getMessages()) {
+                widget.postMessage(message);
+            }
 
-            idsToRemove.add(msg.getKey());
-        }
-
-        for(long id : idsToRemove) {
-            world.removeComponent(id, MessageLogOutputComponent.class);
+            msgComp.clearMessages();
         }
     }
 }
