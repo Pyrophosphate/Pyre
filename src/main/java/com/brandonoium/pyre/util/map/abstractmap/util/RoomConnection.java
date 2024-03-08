@@ -1,4 +1,4 @@
-package com.brandonoium.pyre.util.map.generator.util;
+package com.brandonoium.pyre.util.map.abstractmap.util;
 
 public class RoomConnection {
     private MapRoom room1;

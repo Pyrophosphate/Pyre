@@ -4,18 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6953ccaf-93d2-4296-baea-04fc4ae22045" name="Changes" comment="Added PerformingAttackSystem and the basic skeleton for performing melee attacks">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/brandonoium/pyre/attacks/Attack.java" afterDir="false" />
+    <list default="true" id="6953ccaf-93d2-4296-baea-04fc4ae22045" name="Changes" comment="Changed MessageLogOutputComponent to be a list of messages, rather than a single string, so that entities will be able to have more than one message per turn">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/brandonoium/pyre/util/map/abstractmap/LogicalMap.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/brandonoium/pyre/util/map/abstractmap/MapFeature.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/brandonoium/pyre/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/brandonoium/pyre/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/brandonoium/pyre/components/MessageLogOutputComponent.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/brandonoium/pyre/components/MessageLogOutputComponent.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/brandonoium/pyre/systems/DebugCollisionSystem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/brandonoium/pyre/systems/DebugCollisionSystem.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/brandonoium/pyre/systems/ExaminationSystem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/brandonoium/pyre/systems/ExaminationSystem.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/brandonoium/pyre/systems/FollowSimpleTargetSystem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/brandonoium/pyre/systems/FollowSimpleTargetSystem.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/brandonoium/pyre/systems/MessageLogSystem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/brandonoium/pyre/systems/MessageLogSystem.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/brandonoium/pyre/systems/PerformingAttackSystem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/brandonoium/pyre/systems/PerformingAttackSystem.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/brandonoium/pyre/systems/PlayerInputSystem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/brandonoium/pyre/systems/PlayerInputSystem.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/brandonoium/pyre/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/brandonoium/pyre/Main.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/brandonoium/pyre/util/map/generator/RoomGridMapGenerator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/brandonoium/pyre/util/map/generator/RoomGridMapGenerator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/brandonoium/pyre/util/map/generator/util/MapRoom.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/brandonoium/pyre/util/map/abstractmap/util/MapRoom.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/brandonoium/pyre/util/map/generator/util/RoomConnection.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/brandonoium/pyre/util/map/abstractmap/util/RoomConnection.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -68,8 +64,9 @@
 }</component>
   <component name="RecentsManager">
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
-      <recent name="com.brandonoium.pyre.ui.widgets" />
+      <recent name="com.brandonoium.pyre.util.map.abstractmap" />
       <recent name="com.brandonoium.pyre.util.map" />
+      <recent name="com.brandonoium.pyre.ui.widgets" />
       <recent name="com.brandonoium.pyre" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
@@ -131,7 +128,10 @@
       <workItem from="1708353236933" duration="5056000" />
       <workItem from="1708449236381" duration="6290000" />
       <workItem from="1709133677739" duration="40728000" />
-      <workItem from="1709576219061" duration="7554000" />
+      <workItem from="1709576219061" duration="7698000" />
+      <workItem from="1709748818628" duration="1198000" />
+      <workItem from="1709821219990" duration="5555000" />
+      <workItem from="1709905829742" duration="7563000" />
     </task>
     <task id="LOCAL-00001" summary="Initial Commit">
       <option name="closed" value="true" />
@@ -253,7 +253,15 @@
       <option name="project" value="LOCAL" />
       <updated>1709326329706</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="Changed MessageLogOutputComponent to be a list of messages, rather than a single string, so that entities will be able to have more than one message per turn">
+      <option name="closed" value="true" />
+      <created>1709587458710</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1709587458710</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -299,6 +307,7 @@
     <MESSAGE value="Implemented initial bits of the combat system" />
     <MESSAGE value="Reorganized UI widget and container functionality and implemented a RoomGridMapGenerator" />
     <MESSAGE value="Added PerformingAttackSystem and the basic skeleton for performing melee attacks" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added PerformingAttackSystem and the basic skeleton for performing melee attacks" />
+    <MESSAGE value="Changed MessageLogOutputComponent to be a list of messages, rather than a single string, so that entities will be able to have more than one message per turn" />
+    <option name="LAST_COMMIT_MESSAGE" value="Changed MessageLogOutputComponent to be a list of messages, rather than a single string, so that entities will be able to have more than one message per turn" />
   </component>
 </project>

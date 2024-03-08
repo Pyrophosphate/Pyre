@@ -2,8 +2,8 @@ package com.brandonoium.pyre.util.map.generator;
 
 import com.brandonoium.pyre.util.map.GameMap;
 import com.brandonoium.pyre.util.map.MapTileType;
-import com.brandonoium.pyre.util.map.generator.util.MapRoom;
-import com.brandonoium.pyre.util.map.generator.util.RoomConnection;
+import com.brandonoium.pyre.util.map.abstractmap.util.MapRoom;
+import com.brandonoium.pyre.util.map.abstractmap.util.RoomConnection;
 
 import java.util.ArrayList;
 import java.util.Random;
@@ -60,7 +60,7 @@ public class RoomGridMapGenerator implements MapGenerator {
         }
 
         for(MapRoom room : rooms) {
-            carveRoom(room, map);
+            room.renderToMap(map);
         }
 
         ArrayList<RoomConnection> connections = connectAllAdjacentRooms(rooms);
@@ -94,20 +94,6 @@ public class RoomGridMapGenerator implements MapGenerator {
         }
 
         return corridors;
-    }
-
-
-    private void carveRoom(int startX, int startY, int w, int h, GameMap map) {
-        for(int y = 0; y < h; y++) {
-            for(int x = 0; x < w; x++) {
-                map.setTileAt(x + startX, y + startY, MapTileType.FLOOR);
-            }
-        }
-    }
-
-    private void carveRoom(MapRoom room, GameMap map) {
-        if(room != null)
-            carveRoom(room.getX(), room.getY(), room.getWidth(), room.getHeight(), map);
     }
 
     private void carveCorridor(RoomConnection connection, GameMap map) {

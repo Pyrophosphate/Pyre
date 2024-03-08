@@ -1,6 +1,10 @@
-package com.brandonoium.pyre.util.map.generator.util;
+package com.brandonoium.pyre.util.map.abstractmap.util;
 
-public class MapRoom {
+import com.brandonoium.pyre.util.map.GameMap;
+import com.brandonoium.pyre.util.map.MapTileType;
+import com.brandonoium.pyre.util.map.abstractmap.MapFeature;
+
+public class MapRoom extends MapFeature {
     private int x;
     private int y;
 
@@ -46,5 +50,15 @@ public class MapRoom {
 
     public void setHeight(int height) {
         this.height = height;
+    }
+
+
+    @Override
+    public void renderToMap(GameMap map) {
+        for(int y = 0; y < height; y++) {
+            for(int x = 0; x < width; x++) {
+                map.setTileAt(x + this.x, y + this.y, MapTileType.FLOOR);
+            }
+        }
     }
 }
