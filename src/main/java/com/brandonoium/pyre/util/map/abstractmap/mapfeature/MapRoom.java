@@ -1,8 +1,10 @@
-package com.brandonoium.pyre.util.map.abstractmap.util;
+package com.brandonoium.pyre.util.map.abstractmap.mapfeature;
 
 import com.brandonoium.pyre.util.map.GameMap;
 import com.brandonoium.pyre.util.map.MapTileType;
 import com.brandonoium.pyre.util.map.abstractmap.MapFeature;
+
+import java.util.Random;
 
 public class MapRoom extends MapFeature {
     private int x;
@@ -54,7 +56,7 @@ public class MapRoom extends MapFeature {
 
 
     @Override
-    public void renderToMap(GameMap map) {
+    public void renderToMap(GameMap map, Random rng) {
         for(int y = 0; y < height; y++) {
             for(int x = 0; x < width; x++) {
                 map.setTileAt(x + this.x, y + this.y, MapTileType.FLOOR);

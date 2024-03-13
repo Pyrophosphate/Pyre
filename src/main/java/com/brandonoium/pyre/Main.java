@@ -57,7 +57,7 @@ public class Main {
 
         MapService map = new MapService();
         try {
-            map.generateMap(new RoomGridMapGenerator(80, 60));
+            map.generateMap(new RoomGridMapGenerator(world, 80, 60));
         } catch (MapGenException e) {
             throw new RuntimeException(e);
         }

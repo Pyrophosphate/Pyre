@@ -1,14 +1,17 @@
-package com.brandonoium.pyre.util.map.abstractmap.util;
+package com.brandonoium.pyre.util.map.abstractmap.mapfeature;
 
-public class RoomConnection {
-    private MapRoom room1;
-    private MapRoom room2;
+import com.brandonoium.pyre.util.map.abstractmap.MapFeature;
+
+public abstract class RoomConnection extends MapFeature {
+    protected MapRoom room1;
+    protected MapRoom room2;
 
 
     public RoomConnection(MapRoom room1, MapRoom room2) {
         this.room1 = room1;
         this.room2 = room2;
     }
+
 
     public MapRoom getRoom1() {
         return room1;

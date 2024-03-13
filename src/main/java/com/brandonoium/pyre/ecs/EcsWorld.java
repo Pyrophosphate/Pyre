@@ -121,6 +121,22 @@ public class EcsWorld {
     }
 
 
+    public void removeEmptyEntities() {
+        ArrayList<Long> ids = new ArrayList<>();
+
+        for(Entry<Long, HashMap<Class, IComponent>> entity : componentsById.entrySet()) {
+            long key = entity.getKey();
+            if(componentsById.get(key).isEmpty()) {
+                ids.add(key);
+            }
+        }
+
+        for(long id : ids) {
+            removeEntity(id);
+        }
+    }
+
+
     public LocationIndex getLocationIndex() {
         return entitiesByLocation;
     }
