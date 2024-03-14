@@ -1,5 +1,6 @@
 package com.brandonoium.pyre.util.map.abstractmap.mapfeature;
 
+import com.brandonoium.pyre.ecs.EcsWorld;
 import com.brandonoium.pyre.util.map.GameMap;
 import com.brandonoium.pyre.util.map.MapTileType;
 
@@ -21,7 +22,7 @@ public class SimpleCorridor extends RoomConnection {
 
 
     @Override
-    public void renderToMap(GameMap map, Random rng) {
+    public void renderToMap(GameMap map, Random rng, EcsWorld world) {
         int startX = rng.nextInt(room1.getX(), room1.getX() + room1.getWidth() - width);
         int startY = rng.nextInt(room1.getY(), room1.getY() + room1.getHeight() - width);
         int endX = rng.nextInt(room2.getX(), room2.getX() + room2.getWidth() - width);

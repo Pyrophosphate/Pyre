@@ -20,10 +20,11 @@ public class PlayerBuilder {
         world.addComponent(playerId, new PlayerControlComponent(1));
         world.addComponent(playerId, new NameComponent("Player"));
         world.addComponent(playerId, new DescriptionComponent("This is you. The player. You're the player."));
-        world.addComponent(playerId, new MoveableComponent(true, false, false));
+        world.addComponent(playerId, new MovableComponent(true, false, false));
         world.addComponent(playerId, new CanExamineComponent());
         world.addComponent(playerId, new HealthComponent(5));
         world.addComponent(playerId, new IsAttackableComponent());
+        world.addComponent(playerId, new CanPerformAttackComponent());
 
         return playerId;
     }

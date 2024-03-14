@@ -1,5 +1,6 @@
 package com.brandonoium.pyre.util.map.abstractmap;
 
+import com.brandonoium.pyre.ecs.EcsWorld;
 import com.brandonoium.pyre.util.map.GameMap;
 import com.brandonoium.pyre.util.map.abstractmap.mapfeature.MapRoom;
 import com.brandonoium.pyre.util.map.abstractmap.mapfeature.RoomConnection;
@@ -39,12 +40,12 @@ public class LogicalMap {
     }
 
 
-    public void renderAllToMap(GameMap map, Random rng) {
+    public void renderAllToMap(GameMap map, Random rng, EcsWorld world) {
         for(MapRoom room : rooms) {
-            room.renderToMap(map, rng);
+            room.renderToMap(map, rng, world);
         }
         for(RoomConnection conn : connections) {
-            conn.renderToMap(map, rng);
+            conn.renderToMap(map, rng, world);
         }
     }
 }

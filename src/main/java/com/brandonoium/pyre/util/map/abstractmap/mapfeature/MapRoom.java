@@ -1,5 +1,6 @@
 package com.brandonoium.pyre.util.map.abstractmap.mapfeature;
 
+import com.brandonoium.pyre.ecs.EcsWorld;
 import com.brandonoium.pyre.util.map.GameMap;
 import com.brandonoium.pyre.util.map.MapTileType;
 import com.brandonoium.pyre.util.map.abstractmap.MapFeature;
@@ -56,7 +57,7 @@ public class MapRoom extends MapFeature {
 
 
     @Override
-    public void renderToMap(GameMap map, Random rng) {
+    public void renderToMap(GameMap map, Random rng, EcsWorld world) {
         for(int y = 0; y < height; y++) {
             for(int x = 0; x < width; x++) {
                 map.setTileAt(x + this.x, y + this.y, MapTileType.FLOOR);

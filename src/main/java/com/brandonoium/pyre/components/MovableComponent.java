@@ -2,13 +2,13 @@ package com.brandonoium.pyre.components;
 
 import com.brandonoium.pyre.ecs.IComponent;
 
-public class MoveableComponent implements IComponent {
+public class MovableComponent implements IComponent {
 
     private boolean canWalk;
     private boolean canFly;
     private boolean canPhase;
 
-    public MoveableComponent(boolean canWalk, boolean canFly, boolean canPhase) {
+    public MovableComponent(boolean canWalk, boolean canFly, boolean canPhase) {
         this.canWalk = canWalk;
         this.canFly = canFly;
         this.canPhase = canPhase;

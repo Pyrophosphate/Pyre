@@ -4,9 +4,11 @@ import com.brandonoium.pyre.components.*;
 import com.brandonoium.pyre.ecs.EcsSystem;
 import com.brandonoium.pyre.ecs.EcsWorld;
 import com.brandonoium.pyre.ecs.IComponent;
+import com.brandonoium.pyre.entitybuilders.PlayerBuilder;
 import com.brandonoium.pyre.gamestates.EnemyTurnState;
 import com.brandonoium.pyre.util.Location;
 
+import javax.sound.midi.SysexMessage;
 import java.util.ArrayList;
 import java.util.Map;
 
@@ -38,11 +40,15 @@ public class PlayerSpawnerSystem extends EcsSystem {
 
         for(Map.Entry<Long, IComponent> x : playerSpawners.entrySet()) {
             LocationComponent playerLocation = (LocationComponent) world.getComponent(playerEntityId, LocationComponent.class);
+            Location spawnerLocation = ((PlayerSpawnerComponent) x.getValue()).getPlayerLocation();
             if(playerLocation != null) {
-                Location spawnerLocation = ((PlayerSpawnerComponent) x.getValue()).getPlayerLocation();
-                world.updateLocation(playerLocation, spawnerLocation, x.getKey());
+                System.out.println("Found player with ID " + x.getKey());
+                world.updateLocation(playerLocation, spawnerLocation, playerEntityId);
 
                 idsToRemove.add(x.getKey());
+            } else {
+                //long pid = PlayerBuilder.buildPlayer(world);
+                world.addComponent(playerEntityId, new LocationComponent(spawnerLocation));
             }
         }
 

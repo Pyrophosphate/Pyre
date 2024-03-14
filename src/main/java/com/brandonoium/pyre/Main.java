@@ -6,6 +6,7 @@ import com.brandonoium.pyre.components.*;
 import com.brandonoium.pyre.ecs.EcsWorld;
 import com.brandonoium.pyre.entitybuilders.PlayerBuilder;
 import com.brandonoium.pyre.gamestates.EnemyTurnState;
+import com.brandonoium.pyre.gamestates.MapGenerationState;
 import com.brandonoium.pyre.gamestates.PlayerTurnState;
 import com.brandonoium.pyre.gamestates.StateManager;
 import com.brandonoium.pyre.systems.*;
@@ -41,10 +42,12 @@ public class Main {
         long playerEntityId = PlayerBuilder.buildPlayer(world);
         StateManager stateMgr = new StateManager(world);
         PlayerTurnState playerTurnState = new PlayerTurnState(stateMgr);
-        stateMgr.setCurrentState(playerTurnState);
+        MapGenerationState mapGenState = new MapGenerationState(stateMgr);
+        stateMgr.setCurrentState(mapGenState);
         EnemyTurnState enemyTurnState = new EnemyTurnState(stateMgr);
         playerTurnState.setEnemyTurnState(enemyTurnState);
         enemyTurnState.setPlayerTurnState(playerTurnState);
+        mapGenState.setPlayerTurnState(playerTurnState);
 
         StateChangeSystem stateChangeSystem = StateChangeSystem.getSystem(world, enemyTurnState);
         AiControlSystem aiControlSystem = AiControlSystem.getSystem(world);
@@ -95,8 +98,12 @@ public class Main {
         RemoveJustMovedComponentSystem justMoved = RemoveJustMovedComponentSystem.getSystem(world);
         PerformingAttackSystem attackSystem = PerformingAttackSystem.getSystem(world);
 
+        PlayerSpawnerSystem playerSpawnerSystem = PlayerSpawnerSystem.getSystem(world, playerEntityId);
+        RemoveEmptyEntitiesSystem removeEmptyEntitiesSystem = RemoveEmptyEntitiesSystem.getSystem(world);
+
         playerTurnState.initSystems();
         enemyTurnState.initSystems();
+        mapGenState.initSystems();
 
         while(true) {
             stateMgr.runSystems();

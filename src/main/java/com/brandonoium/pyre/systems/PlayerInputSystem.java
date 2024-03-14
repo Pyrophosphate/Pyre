@@ -99,16 +99,20 @@ public class PlayerInputSystem extends EcsSystem {
                 waitAction(targetEntity);
                 break;
             }
+            case DESCEND_STAIRS -> {
+                descendStairs(targetEntity);
+                break;
+            }
         }
     }
 
 
     private void moveAction(long targetId, int dx, int dy) {
-        MoveableComponent moveable = ((MoveableComponent) world.getComponent(targetId, MoveableComponent.class));
+        MovableComponent moveable = ((MovableComponent) world.getComponent(targetId, MovableComponent.class));
         if(moveable != null) {
             Location entityLocation = ((LocationComponent) world.getComponent(targetId, LocationComponent.class)).getLoc();
 
-            if (!tryAttack(entityLocation.getX() + dx, entityLocation.getY() + dy)) {
+            if (!tryAttack(targetId, entityLocation.getX() + dx, entityLocation.getY() + dy)) {
                 if (canMove(moveable, entityLocation.getX() + dx, entityLocation.getY() + dy)) {
                     world.addComponent(targetId, new BumpMovementComponent(dx, dy));
 
@@ -119,13 +123,13 @@ public class PlayerInputSystem extends EcsSystem {
         }
     }
 
-    private boolean canMove(MoveableComponent moveable, int targetX, int targetY) {
+    private boolean canMove(MovableComponent movable, int targetX, int targetY) {
         if (map.isValidLocation(targetX, targetY)) {
-            if (moveable.canPhase()) {
+            if (movable.canPhase()) {
                 return true;
-            } else if (moveable.canFly() && map.canFlyAt(targetX, targetY)) {
+            } else if (movable.canFly() && map.canFlyAt(targetX, targetY)) {
                 return true;
-            } else if (moveable.canWalk() && map.canWalkAt(targetX, targetY)) {
+            } else if (movable.canWalk() && map.canWalkAt(targetX, targetY)) {
                 return true;
             } else {
                 return false;
@@ -135,8 +139,10 @@ public class PlayerInputSystem extends EcsSystem {
         }
     }
 
-    private boolean tryAttack(int targetX, int targetY) {
-        if (map.isValidLocation(targetX, targetY)) {
+    private boolean tryAttack(long entityId, int targetX, int targetY) {
+        CanPerformAttackComponent canAttack = (CanPerformAttackComponent) world.getComponent(entityId, CanPerformAttackComponent.class);
+
+        if (canAttack != null && map.isValidLocation(targetX, targetY)) {
             List<Long> collisions = world.getLocationIndex().getEntitiesAt(targetX, targetY);
             for(long targetEntity : collisions) {
                 if(world.getComponent(targetEntity, IsAttackableComponent.class) != null) {
@@ -169,6 +175,17 @@ public class PlayerInputSystem extends EcsSystem {
             world.removeEntity(targetId);
         } else {
             RemoteExamineBuilder.buildRemoteExamine(world, targetId);
+        }
+    }
+
+    private void descendStairs(long targetId) {
+        if(targetId == playerEntityId) {
+            Location playerLoc = ((LocationComponent)world.getComponent(targetId, LocationComponent.class)).getLoc();
+            for (long eid : world.getLocationIndex().getEntitiesAt(playerLoc.getX(), playerLoc.getY())) {
+                if(world.getComponent(eid, StairsDownComponent.class) != null) {
+                    System.out.println("Going down...");
+                }
+            }
         }
     }
 

@@ -4,20 +4,29 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6953ccaf-93d2-4296-baea-04fc4ae22045" name="Changes" comment="Began work to create a logical map layer">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/brandonoium/pyre/components/PlayerSpawnerComponent.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/brandonoium/pyre/systems/PlayerSpawnerSystem.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/brandonoium/pyre/systems/RemoveEmptyEntitiesSystem.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/brandonoium/pyre/util/map/abstractmap/mapfeature/PlayerSpawnRoom.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/brandonoium/pyre/util/map/abstractmap/mapfeature/SimpleCorridor.java" afterDir="false" />
+    <list default="true" id="6953ccaf-93d2-4296-baea-04fc4ae22045" name="Changes" comment="Refactored Map Generation to make it easier to spawn entities">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/brandonoium/pyre/components/CanPerformAttackComponent.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/brandonoium/pyre/components/StairsDownComponent.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/brandonoium/pyre/entitybuilders/StairsDownBuilder.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/brandonoium/pyre/gamestates/MapGenerationState.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/brandonoium/pyre/util/map/abstractmap/mapfeature/StairsDownRoom.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/brandonoium/pyre/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/brandonoium/pyre/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/brandonoium/pyre/ecs/EcsWorld.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/brandonoium/pyre/ecs/EcsWorld.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/brandonoium/pyre/components/MoveableComponent.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/brandonoium/pyre/components/MovableComponent.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/brandonoium/pyre/entitybuilders/PlayerBuilder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/brandonoium/pyre/entitybuilders/PlayerBuilder.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/brandonoium/pyre/entitybuilders/RemoteExamineBuilder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/brandonoium/pyre/entitybuilders/RemoteExamineBuilder.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/brandonoium/pyre/systems/PlayerInputSystem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/brandonoium/pyre/systems/PlayerInputSystem.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/brandonoium/pyre/systems/PlayerSpawnerSystem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/brandonoium/pyre/systems/PlayerSpawnerSystem.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/brandonoium/pyre/util/input/DefaultKeyInputMap.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/brandonoium/pyre/util/input/DefaultKeyInputMap.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/brandonoium/pyre/util/input/InputAction.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/brandonoium/pyre/util/input/InputAction.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/brandonoium/pyre/util/map/abstractmap/LogicalMap.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/brandonoium/pyre/util/map/abstractmap/LogicalMap.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/brandonoium/pyre/util/map/abstractmap/MapFeature.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/brandonoium/pyre/util/map/abstractmap/MapFeature.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/brandonoium/pyre/util/map/abstractmap/util/MapRoom.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/brandonoium/pyre/util/map/abstractmap/mapfeature/MapRoom.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/brandonoium/pyre/util/map/abstractmap/util/RoomConnection.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/brandonoium/pyre/util/map/abstractmap/mapfeature/RoomConnection.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/brandonoium/pyre/util/map/abstractmap/mapfeature/MapRoom.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/brandonoium/pyre/util/map/abstractmap/mapfeature/MapRoom.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/brandonoium/pyre/util/map/abstractmap/mapfeature/PlayerSpawnRoom.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/brandonoium/pyre/util/map/abstractmap/mapfeature/PlayerSpawnRoom.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/brandonoium/pyre/util/map/abstractmap/mapfeature/SimpleCorridor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/brandonoium/pyre/util/map/abstractmap/mapfeature/SimpleCorridor.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/brandonoium/pyre/util/map/generator/RoomGridMapGenerator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/brandonoium/pyre/util/map/generator/RoomGridMapGenerator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/brandonoium/pyre/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/brandonoium/pyre/Main.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/brandonoium/pyre/ecs/EcsWorld.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/brandonoium/pyre/ecs/EcsWorld.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -140,7 +149,8 @@
       <workItem from="1709905829742" duration="7851000" />
       <workItem from="1710162322881" duration="2878000" />
       <workItem from="1710248426724" duration="3057000" />
-      <workItem from="1710334362627" duration="18705000" />
+      <workItem from="1710334362627" duration="18778000" />
+      <workItem from="1710420414516" duration="14262000" />
     </task>
     <task id="LOCAL-00001" summary="Initial Commit">
       <option name="closed" value="true" />
@@ -278,7 +288,15 @@
       <option name="project" value="LOCAL" />
       <updated>1709930639831</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="Refactored Map Generation to make it easier to spawn entities">
+      <option name="closed" value="true" />
+      <created>1710361636270</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1710361636270</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -326,6 +344,7 @@
     <MESSAGE value="Added PerformingAttackSystem and the basic skeleton for performing melee attacks" />
     <MESSAGE value="Changed MessageLogOutputComponent to be a list of messages, rather than a single string, so that entities will be able to have more than one message per turn" />
     <MESSAGE value="Began work to create a logical map layer" />
-    <option name="LAST_COMMIT_MESSAGE" value="Began work to create a logical map layer" />
+    <MESSAGE value="Refactored Map Generation to make it easier to spawn entities" />
+    <option name="LAST_COMMIT_MESSAGE" value="Refactored Map Generation to make it easier to spawn entities" />
   </component>
 </project>

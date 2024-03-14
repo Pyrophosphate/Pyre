@@ -26,7 +26,7 @@ public class DefaultKeyInputMap {
 
         map.setMapping(KeyEvent.VK_X, InputAction.REMOTE_EXAMINE);
 
-        //map.setMapping(KeyEvent.);
+        map.setMapping(KeyEvent.VK_PERIOD, InputAction.DESCEND_STAIRS);
 
         return map;
     }

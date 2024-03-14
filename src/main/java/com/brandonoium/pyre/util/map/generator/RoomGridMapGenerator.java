@@ -5,7 +5,9 @@ import com.brandonoium.pyre.util.map.GameMap;
 import com.brandonoium.pyre.util.map.MapTileType;
 import com.brandonoium.pyre.util.map.abstractmap.LogicalMap;
 import com.brandonoium.pyre.util.map.abstractmap.mapfeature.MapRoom;
+import com.brandonoium.pyre.util.map.abstractmap.mapfeature.PlayerSpawnRoom;
 import com.brandonoium.pyre.util.map.abstractmap.mapfeature.SimpleCorridor;
+import com.brandonoium.pyre.util.map.abstractmap.mapfeature.StairsDownRoom;
 
 import java.util.ArrayList;
 import java.util.Random;
@@ -15,8 +17,8 @@ public class RoomGridMapGenerator implements MapGenerator {
     private int width;
     private int height;
 
-    private int roomGridWidth = 3;
-    private int roomGridHeight = 3;
+    private int roomGridWidth = 4;
+    private int roomGridHeight = 4;
 
     private int maxRoomDimension = 50;
     private int minRoomDimension = 3;
@@ -26,11 +28,13 @@ public class RoomGridMapGenerator implements MapGenerator {
     private int corridorWidth = 2;
 
     private Random rng;
+    private EcsWorld world;
 
     public RoomGridMapGenerator(EcsWorld world, int width, int height, long seed) {
         this.width = width;
         this.height = height;
         rng = new Random(seed);
+        this.world = world;
     }
 
     public RoomGridMapGenerator(EcsWorld world, int width, int height) {
@@ -64,6 +68,24 @@ public class RoomGridMapGenerator implements MapGenerator {
             }
         }
 
+        // Set player spawn room.
+        // For now, choose any room on the left edge of the map.
+        int roomY = rng.nextInt(roomGridHeight);
+        int roomIndex = roomPositionIndex(0, roomY);
+        MapRoom oldRoom = rooms.get(roomIndex);
+        PlayerSpawnRoom spawnRoom = new PlayerSpawnRoom(oldRoom.getX(), oldRoom.getY(), oldRoom.getWidth(), oldRoom.getHeight());
+        rooms.set(roomIndex, spawnRoom);
+
+        // Set the room with the stairs going down to the next level.
+        // For now, choose any room on the right edge of the map.
+        roomY = rng.nextInt(roomGridHeight);
+        roomIndex = roomPositionIndex(roomGridWidth - 1, roomY);
+        oldRoom = rooms.get(roomIndex);
+        StairsDownRoom stairsRoom = new StairsDownRoom(oldRoom.getX(), oldRoom.getY(), oldRoom.getWidth(), oldRoom.getHeight());
+        rooms.set(roomIndex, stairsRoom);
+
+
+        // Add all features to LogicalMap.
         for(MapRoom room : rooms) {
             lmap.addRoom(room);
         }
@@ -74,7 +96,7 @@ public class RoomGridMapGenerator implements MapGenerator {
             lmap.addConnection(connection);
         }
 
-        lmap.renderAllToMap(map, rng);
+        lmap.renderAllToMap(map, rng, world);
 
         surroundWithWalls(map);
 

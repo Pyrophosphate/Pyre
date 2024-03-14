@@ -2,14 +2,14 @@ package com.brandonoium.pyre.util.map.abstractmap.mapfeature;
 
 import com.brandonoium.pyre.components.PlayerSpawnerComponent;
 import com.brandonoium.pyre.ecs.EcsWorld;
+import com.brandonoium.pyre.entitybuilders.StairsDownBuilder;
 import com.brandonoium.pyre.util.map.GameMap;
 
 import java.util.Random;
 
-public class PlayerSpawnRoom extends MapRoom {
+public class StairsDownRoom extends MapRoom {
 
-
-    public PlayerSpawnRoom(int xPosition, int yPosition, int width, int height) {
+    public StairsDownRoom(int xPosition, int yPosition, int width, int height) {
         super(xPosition, yPosition, width, height);
     }
 
@@ -26,6 +26,6 @@ public class PlayerSpawnRoom extends MapRoom {
         int x = rng.nextInt(minX, maxX);
         int y = rng.nextInt(minY, maxY);
 
-        world.addComponent(world.newEntityId(), new PlayerSpawnerComponent(x, y));
+        StairsDownBuilder.buildStairsDown(world, x, y);
     }
 }
